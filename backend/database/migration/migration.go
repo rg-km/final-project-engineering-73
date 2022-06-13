@@ -68,7 +68,7 @@ func main() {
 			id_guru INT,
 			id_siswa INT,
 			status VARCHAR(50),
-			tgl TIME,
+			tgl DATE,
 			FOREIGN KEY(id_guru) REFERENCES guru(id_guru),
 			FOREIGN KEY(id_siswa) REFERENCES siswa(id_siswa)
 		);
@@ -78,7 +78,7 @@ func main() {
 			id_guru INT,
 			id_siswa INT,
 			review VARCHAR(50),
-			tgl TIME,
+			tgl DATE,
 			FOREIGN KEY(id_guru) REFERENCES guru(id_guru),
 			FOREIGN KEY(id_siswa) REFERENCES siswa(id_siswa)
 		);

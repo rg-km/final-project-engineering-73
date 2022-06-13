@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// bikin koneksi ke database dan migrasi database
+	// membuat koneksi ke db
 	_, err := sql.Open("sqlite3", "backend/database/guruku.db")
 	if err != nil {
 		panic(err)
