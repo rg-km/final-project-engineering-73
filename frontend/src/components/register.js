@@ -3,10 +3,7 @@ import './register.css';
 
 function Register() {
     return(
-    <div class="container">
-        <div class="img">
-			<img src="public/guruku-bg.png" width="300" height="500">
-		</div>
+      <div>
         <div className="register-content">
             <form action="" method="POST">
                 <h2 class="title">Register</h2>
@@ -29,7 +26,7 @@ function Register() {
                 </div>
             </form>
         </div>
-    </div>     
+      </div>
     )       
 }
 export default Register;

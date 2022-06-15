@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import  './login.css';
-
+import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function Login() {
   return (
-      <form>
+  <div className="row justify-content-center align-items-center">
+    <div className="col-sm-3">
+      <img src={guruku} alt="" height={400} />
+    </div>
+    <div className="col-sm-4">
+    <form>
         <h3 className='mb-4'>Sign In GURUKU</h3>
         <div className="mb-3">
           <input
@@ -41,6 +46,10 @@ function Login() {
           Forgot <a href="#">password?</a>
         </p>
       </form>
+    </div>
+  </div>
+      
+     
   );
 }
 
