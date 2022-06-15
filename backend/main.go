@@ -28,7 +28,7 @@ func main() {
 	r := gin.Default()
 
 	// route login
-	r.POST("/api/login", handlerSiswa.LoginSiswa)
+	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 
 	r.Run(":8080")
 }

@@ -12,4 +12,5 @@ type Siswa struct {
 	Email        string
 	No_tlp       int
 	Id_role      int
+	Role         string
 }

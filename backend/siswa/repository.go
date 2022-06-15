@@ -19,9 +19,8 @@ func (r *repository) FindSiswaByUsername(username string) (Siswa, error) {
 	// inisiasi model user
 	var siswa Siswa
 
-	// query find user by username
 	sql := `
-		SELECT * FROM siswa WHERE username = ?
+		SELECT s.*, r.role FROM siswa s, role r WHERE s.id_role = r.id_role AND s.username = ?
 	;`
 
 	// exec query
@@ -39,6 +38,7 @@ func (r *repository) FindSiswaByUsername(username string) (Siswa, error) {
 		&siswa.Email,
 		&siswa.No_tlp,
 		&siswa.Id_role,
+		&siswa.Role,
 	)
 	if err != nil {
 		return siswa, err

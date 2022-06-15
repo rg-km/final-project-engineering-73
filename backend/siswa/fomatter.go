@@ -11,6 +11,7 @@ type siswaFormat struct {
 	Email        string `json:"email"`
 	No_tlp       int    `json:"no_tlp"`
 	Id_role      int    `json:"id_role"`
+	Role         string `json:"role"`
 }
 
 func FormatSiswa(input Siswa) siswaFormat {
@@ -25,5 +26,6 @@ func FormatSiswa(input Siswa) siswaFormat {
 		Email:        input.Email,
 		No_tlp:       input.No_tlp,
 		Id_role:      input.Id_role,
+		Role:         input.Role,
 	}
 }
