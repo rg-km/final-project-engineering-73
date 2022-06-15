@@ -8,6 +8,7 @@ import ruangguru from './ruangguru.png';
 const Footer =() =>{
     return(
         <Card.Body className='FooterU'>
+            <br></br>
             {/* Organization */}
             <Row className="justify-content-md-center">
                 <Col xs lg="1" className='center'><img src={guruku} alt="" width="100" height="50"/></Col>
