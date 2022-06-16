@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/login/login';
 import Register from './components/register/register';
+import Register from './components/register-pengajar/register-pengajar';
 
 import Home from './components/Home';
 import NavbarComp from './components/navbar/NavbarComp';
