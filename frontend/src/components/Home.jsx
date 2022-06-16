@@ -1,3 +1,4 @@
+import Carousels from "./carousels/carousels";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import bg from './img/main-bg.jpg';
 import dicoding from './img/dicoding.png';
@@ -9,6 +10,8 @@ import '../index.css'
 function Home(){
   return(
     <div>
+      <Carousels/>
+      <div>
        <div className="px-4 pt-5 my-5 text-center border-bottom hero">
         <h1 className="display-4 fw-bold">Selamat Datang Di GURUKU</h1>
         <div className="col-lg-6 mx-auto">
@@ -36,10 +39,9 @@ function Home(){
           </div>
         </div>
       </div>
-
-      
-
     </div>
+    </div>
+    
   )
 }
 
