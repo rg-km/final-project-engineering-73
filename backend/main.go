@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"final-project-engineering-73/backend/guru"
 	"final-project-engineering-73/backend/handler"
 	"final-project-engineering-73/backend/siswa"
 	"log"
@@ -24,11 +25,19 @@ func main() {
 	// handler Siswa
 	handlerSiswa := handler.NewHandlerSiswa(serviceSiswa)
 
+	// repo Guru
+	repoGuru := guru.NewRepository(db)
+	// service Guru
+	serviceGuru := guru.NewService(repoGuru)
+	// handler Guru
+	handlerGuru := handler.NewHandlerGuru(serviceGuru)
+
 	// deklarasi http server
 	r := gin.Default()
 
 	// route login
-	r.POST("/api/login", handlerSiswa.LoginSiswa)
+	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
+	r.POST("/api/login/guru", handlerGuru.LoginGuru)
 
 	r.Run(":8080")
 }
