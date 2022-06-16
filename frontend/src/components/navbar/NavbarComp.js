@@ -23,7 +23,7 @@ export default class NavbarComp extends Component {
                 
                  <NavDropdown title="Register" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/register">Sebagai Siswa</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">Sebagai Pengajar</NavDropdown.Item>
+                  <NavDropdown.Item href="/register-pengajar">Sebagai Pengajar</NavDropdown.Item>
                  </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
