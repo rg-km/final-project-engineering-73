@@ -2,7 +2,15 @@ import React, { Component } from 'react'
 import  './login.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 function Login() {
+
+  
+
+
+
+
   return (
   <div className="row justify-content-center align-items-center">
     <div className="col-sm-3">
@@ -48,8 +56,6 @@ function Login() {
       </form>
     </div>
   </div>
-      
-     
   );
 }
 
