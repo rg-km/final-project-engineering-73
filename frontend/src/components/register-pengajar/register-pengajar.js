@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
-import  './login.css';
+import  './register-pengajar.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-function Login() {
-
-  
-
-
-
-
+function Registerpengajar() {
   return (
   <div className="row justify-content-center align-items-center">
     <div className="col-sm-3">
@@ -18,7 +11,14 @@ function Login() {
     </div>
     <div className="col-sm-4">
     <form>
-        <h3 className='mb-4'>Sign In GURUKU</h3>
+        <h3 className='mb-4'>Register Pengajar GURUKU</h3>
+        <div className="mb-3">
+          <input
+            type="username"
+            className="form-control"
+            placeholder="Enter username"
+          />
+        </div>
         <div className="mb-3">
           <input
             type="email"
@@ -33,30 +33,20 @@ function Login() {
             placeholder="Enter password"
           />
         </div>
-        <div className="mb-3">
-          <div className="custom-control custom-checkbox ">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label " htmlFor="customCheck1">
-              Remember me
-            </label>
-          </div>
-        </div>
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
-        <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
+        <p className="sudah-punya text-right">
+            <a href="#">Sudah punya akun?</a>
         </p>
       </form>
     </div>
   </div>
+      
+     
   );
 }
 
-export default Login;
+export default Registerpengajar;

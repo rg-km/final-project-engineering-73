@@ -8,7 +8,7 @@ type InputLogin struct {
 
 // struct input register siswa
 type InputRegister struct {
-	Username     string `json:"username"`
-	Password     string `json:"password"`
-	Nama_lengkap string `json:"nama_lengkap"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Email    string `json:"email"`
 }

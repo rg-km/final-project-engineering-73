@@ -14,14 +14,18 @@ export default class NavbarComp extends Component {
               <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
                   </Nav>
-                  <Nav>
+                <Nav>
                  <Link to="/" className="nav-link ">Home</Link>
                  <Link to="/about" className="nav-link  ">About</Link>
                  <Link to="/contact" className="nav-link ">Contact</Link>
                  <Link to="/login" className="nav-link  ms-5">Login</Link> 
                  <Link to="" className="nav-link ">|</Link>
-                <Link to="/register" className="nav-link">Register</Link>
-            </Nav>
+                
+                 <NavDropdown title="Register" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/register">Sebagai Siswa</NavDropdown.Item>
+                  <NavDropdown.Item href="/register-pengajar">Sebagai Pengajar</NavDropdown.Item>
+                 </NavDropdown>
+                </Nav>
               </Navbar.Collapse>
               </Container>
           </Navbar>

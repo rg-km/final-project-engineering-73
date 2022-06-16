@@ -1,6 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/login/login';
+import Register from './components/register/register';
+import Registerpengajar from './components/register-pengajar/register-pengajar';
 
 import Home from './components/Home';
 import NavbarComp from './components/navbar/NavbarComp';
@@ -14,8 +16,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>} />
-        {/* <Route path="/register" element={<Register/>} />
-       */}
+        <Route path="/register" element={<Register/>} />
+        <Route path="/register-pengajar" element={<Registerpengajar/>} />
   
       </Routes>
 
