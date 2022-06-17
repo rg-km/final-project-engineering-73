@@ -7,6 +7,8 @@ import google from './img/google-dev.png';
 import fiver from './img/fiver.png';
 import { Card,Button } from 'react-bootstrap';
 import '../index.css'
+import { Link, Route, useLocation } from "react-router-dom";
+import About from "./about/about";
 function Home(){
   return(
     <div>
@@ -40,8 +42,7 @@ function Home(){
         </div>
       </div>
     </div>
-    </div>
-    
+  </div>
   )
 }
 
