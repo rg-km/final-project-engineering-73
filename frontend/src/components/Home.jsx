@@ -5,7 +5,6 @@ import dicoding from './img/dicoding.png';
 import udemy from './img/udemy.png';
 import google from './img/google-dev.png';
 import fiver from './img/fiver.png';
-import { Card,Button } from 'react-bootstrap';
 import '../index.css'
 function Home(){
   return(
