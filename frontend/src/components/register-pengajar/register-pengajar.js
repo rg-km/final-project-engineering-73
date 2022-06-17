@@ -39,7 +39,7 @@ function Registerpengajar() {
           </button>
         </div>
         <p className="sudah-punya text-right">
-            <a href="#">Sudah punya akun?</a>
+            <a href="/login">Sudah punya akun?</a>
         </p>
       </form>
     </div>
