@@ -5,8 +5,9 @@ import dicoding from './img/dicoding.png';
 import udemy from './img/udemy.png';
 import google from './img/google-dev.png';
 import fiver from './img/fiver.png';
-import { Card,Button } from 'react-bootstrap';
-import '../index.css'
+import '../index.css' 
+import { Link } from "react-router-dom";
+
 function Home(){
   return(
     <div>
@@ -17,7 +18,7 @@ function Home(){
         <div className="col-lg-6 mx-auto">
           <p className="lead mb-4">Guruku adalah platform pembelajaran untuk segala jenjang pendidikan disini kamu dapat menemukan guru yang terpercaya kredibilitasnya.</p>
           <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" className="btn btn-info btn-lg px-4 me-sm-3 text-white">Baca Selengkapnya </button>
+          <Link to="/about"  className="btn btn-info btn-lg px-4 me-sm-3 text-white">Baca Selengkapnya</Link> 
           </div>
         </div>
       </div>
