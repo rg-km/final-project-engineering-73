@@ -14,7 +14,7 @@ function Contact () {
     <form>
         <h3 className='mb-4'>Call Us!</h3>
         <p >Kami siapa melayani anda kapan saja,<br/>
-            kirim keluahan anda.<br/>
+            kirim keluhan anda.<br/>
             (senin- jumat) | 08.00-17.00
         </p>
         <Row className="justify-content-md-center">
