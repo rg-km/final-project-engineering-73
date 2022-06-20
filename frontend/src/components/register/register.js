@@ -4,6 +4,26 @@ import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Register() {
+  const [username, setUsername] = useState(''); // initial state
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'username') {
+      setUsername(value);
+    } if (name === 'email') {
+      setEmail(value);
+    } if (name === 'password') {
+      setPassword(value);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(username, email, password);
+  }
+
   return (
   <div className="row justify-content-center align-items-center">
     <div className="col-sm-3">
@@ -16,6 +36,8 @@ function Register() {
           <input
             type="username"
             className="form-control"
+            value={username}
+            onChange={handleChange}
             placeholder="Enter username"
           />
         </div>
@@ -23,6 +45,8 @@ function Register() {
           <input
             type="email"
             className="form-control"
+            value={email}
+            onChange={handleChange}
             placeholder="Enter email"
           />
         </div>
@@ -30,11 +54,13 @@ function Register() {
           <input
             type="password"
             className="form-control"
+            value={password}
+            onChange={handleChange}
             placeholder="Enter password"
           />
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" onClick={()=>handleSubmit()}  className="btn btn-primary">
             Submit
           </button>
         </div>
