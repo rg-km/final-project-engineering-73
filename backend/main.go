@@ -49,12 +49,15 @@ func main() {
 	// route register
 	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
 
-	// route get guru by id mapel & id kelas
-	r.GET("/api/guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
-	r.GET("/api/guru/kelas/:id_kelas", handlerGuru.GetGuruByIdKelas)
-
-	// route get guru by id guru
-	r.GET("/api/guru/:id_guru", handlerGuru.GetGuruByIdGuru)
+	// route group siswa
+	siswa := r.Group("/api/siswa")
+	{
+		// route get guru by id mapel & id kelas
+		siswa.GET("guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
+		siswa.GET("guru/kelas/:id_kelas", handlerGuru.GetGuruByIdKelas)
+		// route get guru by id guru - show guru's profile
+		siswa.GET("guru/:id_guru", handlerGuru.GetGuruByIdGuru)
+	}
 
 	r.Run(":8080")
 }
