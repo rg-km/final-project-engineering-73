@@ -5,6 +5,7 @@ import (
 	"final-project-engineering-73/backend/guru"
 	"final-project-engineering-73/backend/handler"
 	"final-project-engineering-73/backend/siswa"
+	"final-project-engineering-73/backend/transaksi"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -32,12 +33,21 @@ func main() {
 	// handler Guru
 	handlerGuru := handler.NewHandlerGuru(serviceGuru)
 
+	// repo Guru
+	repoTransaksi := transaksi.NewRepository(db)
+	// service Guru
+	serviceTransaksi := transaksi.NewService(repoTransaksi)
+	// handler Guru
+	handlerTransaksi := handler.NewHandlerTransaksi(serviceTransaksi)
+
 	// deklarasi http server
 	r := gin.Default()
 
 	// route login
 	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
+	// route transaksi
+	r.POST("/api/transaksi/", handlerTransaksi.InputTransaksi)
 
 	r.Run(":8080")
 }
