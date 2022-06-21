@@ -103,3 +103,28 @@ func (h *handlerGuru) GetGuruByIdKelas(c *gin.Context) {
 
 	c.JSON(http.StatusOK, respons)
 }
+
+// func handler untuk get guru by id kelas
+func (h *handlerGuru) GetGuruByIdGuru(c *gin.Context) {
+	// inisiasi id_guru
+	id_guru, err := strconv.Atoi(c.Param("id_guru"))
+
+	newGuru, err := h.service.GetGuruByIdGuru(id_guru)
+	if err != nil {
+		myErr := gin.H{
+			"error": err.Error(),
+		}
+
+		// template respons
+		respons := helper.ResponsAPI("Gagal", "Gagal!", http.StatusBadRequest, myErr)
+		c.JSON(http.StatusBadRequest, respons)
+		return
+	}
+
+	data := guru.FormatGuru(newGuru)
+
+	// template respons
+	respons := helper.ResponsAPI("Sukses", "Sukses!", http.StatusOK, data)
+
+	c.JSON(http.StatusOK, respons)
+}

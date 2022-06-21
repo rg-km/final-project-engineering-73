@@ -6,6 +6,7 @@ type Repository interface {
 	FindGuruByUsername(username string) (Guru, error)
 	FindGuruByMapel(id_mapel int) (Guru, error)
 	FindGuruByKelas(id_kelas int) (Guru, error)
+	FindGuruByIdGuru(id_guru int) (Guru, error)
 }
 
 type repository struct {
@@ -150,6 +151,60 @@ func (r *repository) FindGuruByKelas(id_kelas int) (Guru, error) {
 
 	// exec query
 	data := r.db.QueryRow(sql, id_kelas)
+
+	// data yang akan di tampilkan
+	err := data.Scan(
+		&guru.Id_guru,
+		&guru.Username,
+		&guru.Password,
+		&guru.Nama_lengkap,
+		&guru.Gender,
+		&guru.Usia,
+		&guru.Alamat,
+		&guru.Email,
+		&guru.No_tlp,
+		&guru.Tarif,
+		&guru.No_rek,
+		&guru.Id_mapel,
+		&guru.Id_kelas,
+		&guru.Id_role,
+		&guru.Mapel,
+		&guru.Kelas,
+		&guru.Role,
+	)
+	if err != nil {
+		return guru, err
+	}
+
+	return guru, nil
+}
+
+// func find guru by kelas - guru kelas
+func (r *repository) FindGuruByIdGuru(id_guru int) (Guru, error) {
+	// inisiasi model user guru
+	var guru Guru
+
+	// query find guru by kelas
+	sql := `
+		SELECT 
+			guru.*,
+			mapel.mapel,
+			kelas.kelas,
+			role.role
+		FROM
+			guru
+		INNER JOIN
+			role ON role.id_role = guru.id_role
+		INNER JOIN
+			mapel ON mapel.id_mapel = guru.id_mapel
+		INNER JOIN
+			kelas ON kelas.id_kelas = guru.id_kelas
+		WHERE
+			guru.id_guru = ?
+	;`
+
+	// exec query
+	data := r.db.QueryRow(sql, id_guru)
 
 	// data yang akan di tampilkan
 	err := data.Scan(

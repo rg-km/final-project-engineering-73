@@ -6,6 +6,7 @@ type Service interface {
 	LoginGuru(input InputLogin) (Guru, error)
 	GetGuruByIdMapel(id_mapel int) (Guru, error)
 	GetGuruByIdKelas(id_kelas int) (Guru, error)
+	GetGuruByIdGuru(id_guru int) (Guru, error)
 }
 
 type service struct {
@@ -47,6 +48,18 @@ func (s *service) GetGuruByIdMapel(id_mapel int) (Guru, error) {
 func (s *service) GetGuruByIdKelas(id_kelas int) (Guru, error) {
 	// panggil function FindGuruByKelas dari respository
 	guru, err := s.repository.FindGuruByMapel(id_kelas)
+	if err != nil {
+		return guru, errors.New("guru tidak terdaftar")
+		// return guru, err
+	}
+
+	return guru, nil
+}
+
+// func get guru by id guru
+func (s *service) GetGuruByIdGuru(id_guru int) (Guru, error) {
+	// panggil function FindGuruByGuru dari respository
+	guru, err := s.repository.FindGuruByMapel(id_guru)
 	if err != nil {
 		return guru, errors.New("guru tidak terdaftar")
 		// return guru, err
