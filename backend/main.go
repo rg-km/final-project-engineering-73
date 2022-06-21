@@ -39,5 +39,12 @@ func main() {
 	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
 
+	// route get guru by id mapel & id kelas
+	r.GET("/api/guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
+	r.GET("/api/guru/kelas/:id_kelas", handlerGuru.GetGuruByIdKelas)
+
+	// route get guru by id guru
+	r.GET("/api/guru/:id_guru", handlerGuru.GetGuruByIdGuru)
+
 	r.Run(":8080")
 }
