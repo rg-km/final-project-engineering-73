@@ -2,8 +2,8 @@ package siswa
 
 // struct input login siswa
 type InputLogin struct {
-	Username string `json:"username" binding:"required"`
-	Password string `json:"password" binding:"required"`
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 // struct input register siswa
