@@ -69,6 +69,7 @@ func main() {
 			id_siswa INT,
 			status VARCHAR(50),
 			tgl DATE,
+			bukti_pembayaran VARCHAR(50),
 			FOREIGN KEY(id_guru) REFERENCES guru(id_guru),
 			FOREIGN KEY(id_siswa) REFERENCES siswa(id_siswa)
 		);
@@ -112,10 +113,10 @@ func main() {
 			('lisa', '1234', 'lisa widyawati', 'wanita', 27, 'Jakarta', 'lisa@gmail.com', 0890008998, 40000, '07089138900 BRI a/n Lisa W', '2', '2', '1');
 
 		INSERT INTO transaksi
-			(id_siswa, id_guru, status, tgl)
+			(id_siswa, id_guru, status, tgl, bukti_pembayaran)
 		VALUES
-			('1', '1', 'mendaftar', '19-06-2022'),
-			('2', '2', 'selesai', '22-06-2022');
+			('1', '1', 'mendaftar', '19-06-2022', 'abc'),
+			('2', '2', 'selesai', '22-06-2022', 'abc');
 		
 		INSERT INTO review
 			(id_siswa, id_guru, review, tgl)
