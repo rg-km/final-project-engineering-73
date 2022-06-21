@@ -69,6 +69,7 @@ func (r *repository) FindGuruByUsername(username string) (Guru, error) {
 	return guru, nil
 }
 
+// func insert siswa - register siswa
 func (r *repository) InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error) {
 	var guru Guru
 	// query insert user
