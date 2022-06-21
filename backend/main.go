@@ -60,7 +60,6 @@ func main() {
 
 		// route siswa transaction
 		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
-
 	}
 
 	r.Run(":8080")
