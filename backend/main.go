@@ -47,7 +47,14 @@ func main() {
 	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
 	// route register
-	// r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
+	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
+
+	// route group guru
+	guru := r.Group("/api/guru")
+	{
+		// route get guru by id guru - show guru's profile
+		guru.GET("/profile/:id_guru", handlerGuru.GetGuruByIdGuru)
+	}
 
 	// route group siswa
 	siswa := r.Group("/api/siswa")
@@ -60,13 +67,6 @@ func main() {
 
 		// route siswa transaction
 		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
-	}
-
-	// route group guru
-	guru := r.Group("/api/guru")
-	{
-		// route get guru by id guru - show guru's profile
-		guru.GET("/profile/:id_guru", handlerGuru.GetGuruByIdGuru)
 	}
 
 	r.Run(":8080")
