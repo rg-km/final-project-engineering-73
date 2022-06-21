@@ -58,7 +58,7 @@ func main() {
 		// route get guru by id guru - show guru's profile
 		siswa.GET("guru/:id_guru", handlerGuru.GetGuruByIdGuru)
 		// route siswa transaction
-		siswa.POST("transaksi", handlerTransaksi.InputTransaksi)
+		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
 	}
 
 	r.Run(":8080")
