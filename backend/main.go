@@ -49,6 +49,13 @@ func main() {
 	// route register
 	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
 
+	// route group guru
+	guru := r.Group("/api/guru")
+	{
+		// route get guru by id guru - show guru's profile
+		guru.GET("/profile/:id_guru", handlerGuru.GetGuruByIdGuru)
+	}
+
 	// route group siswa
 	siswa := r.Group("/api/siswa")
 	{
