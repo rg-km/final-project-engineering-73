@@ -4,6 +4,8 @@ import "errors"
 
 type Service interface {
 	LoginGuru(input InputLogin) (Guru, error)
+	GetGuruByIdMapel(id_mapel int) (Guru, error)
+	GetGuruByIdKelas(id_kelas int) (Guru, error)
 }
 
 type service struct {
@@ -23,6 +25,30 @@ func (s *service) LoginGuru(input InputLogin) (Guru, error) {
 	guru, err := s.repository.FindGuruByUsername(username)
 	if err != nil {
 		return guru, errors.New("username tidak terdaftar")
+		// return guru, err
+	}
+
+	return guru, nil
+}
+
+// func get guru by id mapel
+func (s *service) GetGuruByIdMapel(id_mapel int) (Guru, error) {
+	// panggil function FindGuruByMapel dari respository
+	guru, err := s.repository.FindGuruByMapel(id_mapel)
+	if err != nil {
+		return guru, errors.New("guru tidak terdaftar")
+		// return guru, err
+	}
+
+	return guru, nil
+}
+
+// func get guru by id kelas
+func (s *service) GetGuruByIdKelas(id_kelas int) (Guru, error) {
+	// panggil function FindGuruByKelas dari respository
+	guru, err := s.repository.FindGuruByMapel(id_kelas)
+	if err != nil {
+		return guru, errors.New("guru tidak terdaftar")
 		// return guru, err
 	}
 

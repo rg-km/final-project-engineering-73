@@ -15,9 +15,9 @@ type guruFormat struct {
 	Id_mapel     int    `json:"id_mapel"`
 	Id_kelas     int    `json:"id_kelas"`
 	Id_role      int    `json:"id_role"`
-	Mapel        string
-	Kelas        string
-	Role         string
+	Mapel        string `json:"mapel"`
+	Kelas        string `json:"kelas"`
+	Role         string `json:"role"`
 }
 
 func FormatGuru(input Guru) guruFormat {
