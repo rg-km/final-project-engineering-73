@@ -38,6 +38,8 @@ func main() {
 	// route login
 	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
+	// route register
+	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
 
 	// route get guru by id mapel & id kelas
 	r.GET("/api/guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
