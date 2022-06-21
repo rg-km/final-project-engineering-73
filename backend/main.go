@@ -38,6 +38,8 @@ func main() {
 	// route login
 	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
+	// route register
+	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
 
 	r.Run(":8080")
 }

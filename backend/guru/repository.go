@@ -4,6 +4,7 @@ import "database/sql"
 
 type Repository interface {
 	FindGuruByUsername(username string) (Guru, error)
+	InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error)
 }
 
 type repository struct {
@@ -61,6 +62,23 @@ func (r *repository) FindGuruByUsername(username string) (Guru, error) {
 		&guru.Kelas,
 		&guru.Role,
 	)
+	if err != nil {
+		return guru, err
+	}
+
+	return guru, nil
+}
+
+func (r *repository) InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error) {
+	var guru Guru
+	// query insert user
+	sql := `
+		INSERT INTO guru (username, password, email, nama_lengkap, gender, usia, alamat, no_tlp, tarif, no_rek, id_mapel, id_kelas, id_role)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+	;`
+
+	// exec query
+	_, err := r.db.Exec(sql, username, password, email, namaLengkap, gender, usia, alamat, noTelp, tarif, noRek, idMapel, idKelas)
 	if err != nil {
 		return guru, err
 	}
