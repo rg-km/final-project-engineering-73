@@ -5,6 +5,7 @@ import (
 	"final-project-engineering-73/backend/guru"
 	"final-project-engineering-73/backend/handler"
 	"final-project-engineering-73/backend/siswa"
+	"final-project-engineering-73/backend/transaksi"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -32,6 +33,13 @@ func main() {
 	// handler Guru
 	handlerGuru := handler.NewHandlerGuru(serviceGuru)
 
+	// repo Guru
+	repoTransaksi := transaksi.NewRepository(db)
+	// service Guru
+	serviceTransaksi := transaksi.NewService(repoTransaksi)
+	// handler Guru
+	handlerTransaksi := handler.NewHandlerTransaksi(serviceTransaksi)
+
 	// deklarasi http server
 	r := gin.Default()
 
@@ -40,6 +48,26 @@ func main() {
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
 	// route register
 	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
+
+	// route group guru
+	guru := r.Group("/api/guru")
+	{
+		// route show guru's profile
+		guru.GET("/profile/:id_guru", handlerGuru.GetProfileGuru)
+	}
+
+	// route group siswa
+	siswa := r.Group("/api/siswa")
+	{
+		// route get guru by id mapel & id kelas
+		siswa.GET("/guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
+		siswa.GET("/guru/kelas/:id_kelas", handlerGuru.GetGuruByIdKelas)
+		// route show guru's profile for siswa
+		siswa.GET("/guru/:id_guru", handlerGuru.GetGuruForSiswa)
+
+		// route siswa transaction
+		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
+	}
 
 	r.Run(":8080")
 }
