@@ -52,8 +52,8 @@ func main() {
 	// route group guru
 	guru := r.Group("/api/guru")
 	{
-		// route get guru by id guru - show guru's profile
-		guru.GET("/profile/:id_guru", handlerGuru.GetGuruByIdGuru)
+		// route show guru's profile
+		guru.GET("/profile/:id_guru", handlerGuru.GetProfileGuru)
 	}
 
 	// route group siswa
@@ -62,8 +62,8 @@ func main() {
 		// route get guru by id mapel & id kelas
 		siswa.GET("/guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
 		siswa.GET("/guru/kelas/:id_kelas", handlerGuru.GetGuruByIdKelas)
-		// route get guru by id guru - show guru's profile
-		siswa.GET("/guru/:id_guru", handlerGuru.GetGuruByIdGuru)
+		// route show guru's profile for siswa
+		siswa.GET("/guru/:id_guru", handlerGuru.GetGuruForSiswa)
 
 		// route siswa transaction
 		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
