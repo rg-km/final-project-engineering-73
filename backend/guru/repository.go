@@ -82,14 +82,37 @@ func (r *repository) InsertRegisterGuru(username string, password string, email 
 	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
 	;`
 
+}
+
+// func find guru by mapel - guru mapel
+func (r *repository) FindGuruByMapel(id_mapel int) ([]Guru, error) {
+	// inisiasi model user guru
+	gurus := []Guru{}
+
+	// query find guru by kelas
+	sql := `
+		SELECT 
+			guru.*,
+			mapel.mapel,
+			kelas.kelas,
+			role.role
+		FROM
+			guru
+		INNER JOIN
+			role ON role.id_role = guru.id_role
+		INNER JOIN
+			mapel ON mapel.id_mapel = guru.id_mapel
+		INNER JOIN
+			kelas ON kelas.id_kelas = guru.id_kelas
+		WHERE
+			guru.id_mapel = ?
+	;`
+
 	// exec query
 	data, err := r.db.Query(sql, id_mapel)
 	if err != nil {
 		return nil, err
 	}
-
-	return guru, nill
-}
 
 	for data.Next() {
 		var guru Guru
