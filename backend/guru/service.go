@@ -38,8 +38,8 @@ func (s *service) GetGuruByIdMapel(id_mapel int) ([]Guru, error) {
 	// panggil function FindGuruByMapel dari respository
 	guru, err := s.repository.FindGuruByMapel(id_mapel)
 	if err != nil {
-		// return guru, errors.New("guru tidak terdaftar")
-		return guru, err
+		return guru, errors.New("guru tidak terdaftar")
+		// return guru, err
 	}
 
 	return guru, nil

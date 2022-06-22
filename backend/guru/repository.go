@@ -107,6 +107,7 @@ func (r *repository) FindGuruByMapel(id_mapel int) ([]Guru, error) {
 		err := data.Scan(
 			&guru.Id_guru,
 			&guru.Username,
+			&guru.Password,
 			&guru.Nama_lengkap,
 			&guru.Gender,
 			&guru.Usia,
@@ -115,8 +116,12 @@ func (r *repository) FindGuruByMapel(id_mapel int) ([]Guru, error) {
 			&guru.No_tlp,
 			&guru.Tarif,
 			&guru.No_rek,
+			&guru.Id_mapel,
+			&guru.Id_kelas,
+			&guru.Id_role,
 			&guru.Mapel,
 			&guru.Kelas,
+			&guru.Role,
 		)
 		if err != nil {
 			return nil, err
@@ -162,6 +167,7 @@ func (r *repository) FindGuruByKelas(id_kelas int) ([]Guru, error) {
 		err := data.Scan(
 			&guru.Id_guru,
 			&guru.Username,
+			&guru.Password,
 			&guru.Nama_lengkap,
 			&guru.Gender,
 			&guru.Usia,
@@ -170,8 +176,12 @@ func (r *repository) FindGuruByKelas(id_kelas int) ([]Guru, error) {
 			&guru.No_tlp,
 			&guru.Tarif,
 			&guru.No_rek,
+			&guru.Id_mapel,
+			&guru.Id_kelas,
+			&guru.Id_role,
 			&guru.Mapel,
 			&guru.Kelas,
+			&guru.Role,
 		)
 		if err != nil {
 			return nil, err
@@ -267,7 +277,7 @@ func (r *repository) FindGuruForSiswa(id_guru int) (Guru, error) {
 	err := data.Scan(
 		&guru.Id_guru,
 		&guru.Username,
-		// &guru.Password,
+		&guru.Password,
 		&guru.Nama_lengkap,
 		&guru.Gender,
 		&guru.Usia,
@@ -276,12 +286,12 @@ func (r *repository) FindGuruForSiswa(id_guru int) (Guru, error) {
 		&guru.No_tlp,
 		&guru.Tarif,
 		&guru.No_rek,
-		// &guru.Id_mapel,
-		// &guru.Id_kelas,
-		// &guru.Id_role,
+		&guru.Id_mapel,
+		&guru.Id_kelas,
+		&guru.Id_role,
 		&guru.Mapel,
 		&guru.Kelas,
-		// &guru.Role,
+		&guru.Role,
 	)
 	if err != nil {
 		return guru, err
