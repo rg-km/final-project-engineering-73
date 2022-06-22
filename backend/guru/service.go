@@ -51,7 +51,7 @@ func (s *service) RegisterGuru(input InputRegister) (Guru, error) {
 	idKelas := input.Id_kelas
 
 	// panggil function RegisterSiswa dari respository
-	siswa, err := s.repository.InsertRegisterGuru(username, password, email, namaLengkap, gender, usia, alamat, noTelp, tarif, noRek, idMapel, idKelas)
+	guru, err := s.repository.InsertRegisterGuru(username, password, email, namaLengkap, gender, usia, alamat, noTelp, tarif, noRek, idMapel, idKelas)
 	if err != nil {
 		// return guru, errors.New("username sudah terdaftar")
 		return guru, err
