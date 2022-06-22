@@ -4,6 +4,7 @@ import "database/sql"
 
 type Repository interface {
 	FindGuruByUsername(username string) (Guru, error)
+	InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error)
 	FindGuruByMapel(id_mapel int) ([]Guru, error)
 	FindGuruByKelas(id_kelas int) ([]Guru, error)
 	FindGuruByIdGuru(id_guru int) (Guru, error)
@@ -72,28 +73,13 @@ func (r *repository) FindGuruByUsername(username string) (Guru, error) {
 	return guru, nil
 }
 
-// func find guru by mapel - guru mapel
-func (r *repository) FindGuruByMapel(id_mapel int) ([]Guru, error) {
-	// inisiasi model user guru
-	gurus := []Guru{}
-
-	// query find guru by mapel
+// func insert siswa - register siswa
+func (r *repository) InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error) {
+	var guru Guru
+	// query insert user
 	sql := `
-		SELECT 
-			guru.*,
-			mapel.mapel,
-			kelas.kelas,
-			role.role
-		FROM
-			guru
-		INNER JOIN
-			role ON role.id_role = guru.id_role
-		INNER JOIN
-			mapel ON mapel.id_mapel = guru.id_mapel
-		INNER JOIN
-			kelas ON kelas.id_kelas = guru.id_kelas
-		WHERE
-			guru.id_mapel = ?
+	INSERT INTO guru (username, password, email, nama_lengkap, gender, usia, alamat, no_tlp, tarif, no_rek, id_mapel, id_kelas, id_role)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
 	;`
 
 	// exec query
@@ -101,6 +87,9 @@ func (r *repository) FindGuruByMapel(id_mapel int) ([]Guru, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	return guru, nill
+}
 
 	for data.Next() {
 		var guru Guru
