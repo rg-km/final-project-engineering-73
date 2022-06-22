@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"final-project-engineering-73/backend/guru"
 	"final-project-engineering-73/backend/handler"
+	"final-project-engineering-73/backend/kategori"
 	"final-project-engineering-73/backend/siswa"
 	"final-project-engineering-73/backend/transaksi"
 	"log"
@@ -40,6 +41,13 @@ func main() {
 	// handler Guru
 	handlerTransaksi := handler.NewHandlerTransaksi(serviceTransaksi)
 
+	// repo Kategori
+	repoKategori := kategori.NewRepository(db)
+	// service Kategori
+	serviceKategori := kategori.NewService(repoKategori)
+	// handler Kategori
+	handlerKategori := handler.NewHandlerKategori(serviceKategori)
+
 	// deklarasi http server
 	r := gin.Default()
 
@@ -67,6 +75,11 @@ func main() {
 
 		// route siswa transaction
 		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
+
+		// route show all kategori mapel
+		siswa.GET("/kategori/mapel", handlerKategori.GetAllKategoriMapel)
+		// route show all kategori kelas
+		siswa.GET("/kategori/kelas", handlerKategori.GetAllKategoriKelas)
 	}
 
 	r.Run(":8080")
