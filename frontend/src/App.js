@@ -15,6 +15,9 @@ import Kegiatanku from './components/kegiatanku/kegiatanku';
 import Profilesiswa from './components/profile-siswa/profile-siswa';
 import Profilesiswaedit from './components/profile-siswaedit/profile-siswaedit';
 import HlmBelajarSiswa from './components/hlm-belajar-siswa/hlm-belajar-siswa';
+import ProfilePengajar from './components/profile-pengajar/ProfilePengajar';
+import Kelasku from './components/kelasku/kelasku';
+import HlmBelajarPengajar from './components/hlm-belajar-pengajar/hlm-belajar-pengajar';
 
 function App() {
   return (
@@ -27,10 +30,13 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/register-pengajar" element={<Registerpengajar/>} />
         <Route path="/kegiatanku" element={<Kegiatanku/>} />
+        <Route path="/hlm-belajar-siswa" element={<HlmBelajarSiswa/>}/>
         <Route path="/cari-guru" element={<CariGuru/>} />
         <Route path="/profile-siswa" element={<Profilesiswa/>} />
         <Route path="/profile-siswaedit" element={<Profilesiswaedit/>} />
-        <Route path="/hlm-belajar-siswa" element={<HlmBelajarSiswa/>}/>
+        <Route path="/kelasku" element={<Kelasku/>} />
+        <Route path="/hlm-belajar-pengajar" element={<HlmBelajarPengajar/>} />
+        <Route path="/profile-pengajar" element={<ProfilePengajar/>} />
       </Routes>
       <Footer/>
     </div>
