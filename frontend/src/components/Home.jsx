@@ -1,6 +1,5 @@
 import Carousels from "./carousels/carousels";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import bg from './img/main-bg.jpg';
 import dicoding from './img/dicoding.png';
 import udemy from './img/udemy.png';
 import google from './img/google-dev.png';

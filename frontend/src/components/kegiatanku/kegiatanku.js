@@ -3,8 +3,11 @@ import {Table} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './kegitanku.css';
+import NavbarSiswa from '../navbar/NavbarSiswa';
 function Kegiatanku(){
     return(
+        <>
+        <NavbarSiswa/>
         <div className="row justify-content-center align-items-center">
             <div responsive="sm" className='navbar-light tabelep'>
             <Table responsive="sm">
@@ -21,12 +24,19 @@ function Kegiatanku(){
                     <td>Nama</td>
                     <td>Status</td>
                     <td>Kelas</td>
-                    <td><Link to=""  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
+                    <td><Link to="/hlm-belajar-siswa"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
+                </tr>
+                <tr>
+                    <td>Nama</td>
+                    <td>Status</td>
+                    <td>Kelas</td>
+                    <td><Link to="/hlm-belajar-siswa"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
                 </tr>
                 </tbody>
             </Table>
             </div>
         </div>
+        </>
     )
 }
 export default Kegiatanku;

@@ -12,6 +12,9 @@ import About from './components/about/about'
 import Contact from './components/contact/contact';
 import CariGuru from './components/cari-guru/CariGuru'
 import Kegiatanku from './components/kegiatanku/kegiatanku';
+import Profilesiswa from './components/profile-siswa/profile-siswa';
+import Profilesiswaedit from './components/profile-siswaedit/profile-siswaedit';
+import HlmBelajarSiswa from './components/hlm-belajar-siswa/hlm-belajar-siswa';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route path="/register-pengajar" element={<Registerpengajar/>} />
         <Route path="/kegiatanku" element={<Kegiatanku/>} />
         <Route path="/cari-guru" element={<CariGuru/>} />
+        <Route path="/profile-siswa" element={<Profilesiswa/>} />
+        <Route path="/profile-siswaedit" element={<Profilesiswaedit/>} />
+        <Route path="/hlm-belajar-siswa" element={<HlmBelajarSiswa/>}/>
       </Routes>
       <Footer/>
     </div>

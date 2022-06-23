@@ -3,9 +3,12 @@ import {Table, Form, Row, Col} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './hlm-belajar.css';
+import NavbarSiswa from '../navbar/NavbarSiswa';
 function HlmBelajarSiswa(){
     return(
-        <div className="row justify-content-center align-items-center">
+        <>
+        <NavbarSiswa/>
+         <div className="row justify-content-center align-items-center">
             <div responsive="sm" className='navbar-light tabelep'>
             
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -69,6 +72,7 @@ function HlmBelajarSiswa(){
             </Form.Group>
             </div>
         </div>
+        </>
     )
 }
 export default HlmBelajarSiswa;
