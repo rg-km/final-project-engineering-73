@@ -13,7 +13,7 @@ function Kelasku(){
             <Table responsive="sm">
                 <thead>
                 <tr>
-                    <th>Pengajar</th>
+                    <th>Siswa</th>
                     <th>Satus</th>
                     <th>Kelas</th>
                     <th></th>

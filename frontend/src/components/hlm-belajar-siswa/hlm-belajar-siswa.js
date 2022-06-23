@@ -7,7 +7,7 @@ import NavbarSiswa from '../navbar/NavbarSiswa';
 function HlmBelajarSiswa(){
     return(
         <>
-        {/* <NavbarSiswa/> */}
+        <NavbarSiswa/>
          <div className="row justify-content-center align-items-center">
             <div responsive="sm" className='navbar-light tabelep'>
             
@@ -61,13 +61,7 @@ function HlmBelajarSiswa(){
                 Link Kelas
                 </Form.Label>
                 <Col sm="10">
-                <Form.Control
-                    type="text"
-                    placeholder="Disabled input"
-                    aria-label="Disabled input example"
-                    disabled
-                    readOnly
-                />
+                <Form.Control plaintext readOnly defaultValue="https://meet.google.com/cvp-htsq-dcf" />
                 </Col>
             </Form.Group>
             </div>

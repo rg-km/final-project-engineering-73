@@ -7,7 +7,7 @@ import NavbarSiswa from '../navbar/NavbarSiswa';
 function Kegiatanku(){
     return(
         <>
-        {/* <NavbarSiswa/> */}
+        <NavbarSiswa/>
         <div className="row justify-content-center align-items-center">
             <div responsive="sm" className='navbar-light tabelep'>
             <Table responsive="sm">
