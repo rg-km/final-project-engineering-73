@@ -7,10 +7,11 @@ import google from './img/google-dev.png';
 import fiver from './img/fiver.png';
 import '../index.css' 
 import { Link } from "react-router-dom";
-
+import NavbarComp from './navbar/NavbarComp';
 function Home(){
   return(
     <div>
+       <NavbarComp/>
       <Carousels/>
       <div>
        <div className="px-4 pt-5 my-5 text-center border-bottom hero">

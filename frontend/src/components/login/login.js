@@ -2,17 +2,14 @@ import React, { Component } from 'react'
 import  './login.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import NavbarComp from '../../components/navbar/NavbarComp';
 
 function Login() {
-
   
-
-
-
-
   return (
-  <div className="row justify-content-center align-items-center">
+    <>
+    <NavbarComp/>
+     <div className="row justify-content-center align-items-center">
     <div className="col-sm-3">
       <img src={guruku} alt="" height={400} />
     </div>
@@ -62,6 +59,8 @@ function Login() {
       </form>
     </div>
   </div>
+    </>
+ 
   );
 }
 
