@@ -4,8 +4,11 @@ import contactt from './contactt.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsFillTelephoneFill, BsFillChatLeftTextFill, BsGoogle } from "react-icons/bs";
 import {Card,  Col, Row} from 'react-bootstrap';
+import NavbarComp from '../../components/navbar/NavbarComp';
 function Contact () {
   return (
+    <>
+    <NavbarComp/>
   <div className="row justify-content-center align-items">
     <div className="col-sm-4">
     <img src={contactt} alt="" height={500} />
@@ -25,6 +28,7 @@ function Contact () {
       </form>
     </div>
   </div>
+  </>
   );
 }
 
