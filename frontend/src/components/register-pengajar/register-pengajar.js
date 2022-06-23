@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import  './register-pengajar.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import NavbarComp from '../../components/navbar/NavbarComp';
 function Registerpengajar() {
   return (
-  <div className="row justify-content-center align-items-center">
+    <>
+     <NavbarComp/>
+     <div className="row justify-content-center align-items-center">
     <div className="col-sm-3">
       <img src={guruku} alt="" height={400} />
     </div>
@@ -44,6 +46,8 @@ function Registerpengajar() {
       </form>
     </div>
   </div>
+    </>
+  
       
      
   );

@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import  '../login/login.css';
 import aboutt from './aboutt.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarComp from '../../components/navbar/NavbarComp';
 function About() {
   return (
+    <>
+    <NavbarComp/>
   <div className="row justify-content-center align-items">
     <div className="col-sm-3">
     <img src={aboutt} alt="" height={550} />
@@ -55,6 +58,7 @@ function About() {
       </div>
     </div>
   </div>
+  </>
   );
 }
 
