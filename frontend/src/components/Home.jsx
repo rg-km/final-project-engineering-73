@@ -5,12 +5,14 @@ import dicoding from './img/dicoding.png';
 import udemy from './img/udemy.png';
 import google from './img/google-dev.png';
 import fiver from './img/fiver.png';
-import '../index.css'
-import { Link, Route, useNavigation} from "react-router-dom";
-import About from './about/about'
+import '../index.css' 
+import { Link } from "react-router-dom";
+
+import Kegiatanku from "./kegiatanku/kegiatanku";
 function Home(){
   return(
     <div>
+      <Kegiatanku/>
       <Carousels/>
       <div>
        <div className="px-4 pt-5 my-5 text-center border-bottom hero">
@@ -18,7 +20,7 @@ function Home(){
         <div className="col-lg-6 mx-auto">
           <p className="lead mb-4">Guruku adalah platform pembelajaran untuk segala jenjang pendidikan disini kamu dapat menemukan guru yang terpercaya kredibilitasnya.</p>
           <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <Link to="/about"  className="btn btn-info btn-lg px-4 me-sm-3 text-white">Baca Selengkapnya</Link>
+          <Link to="/about"  className="btn btn-info btn-lg px-4 me-sm-3 text-white">Baca Selengkapnya</Link> 
           </div>
         </div>
       </div>
@@ -42,6 +44,7 @@ function Home(){
       </div>
     </div>
   </div>
+
   )
 }
 

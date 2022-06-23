@@ -37,7 +37,7 @@ function About() {
               <h5 className="card-title ">Misi Kami</h5>
               <p>Menciptakan peluang ekonomi<br/> 
                 sehingga orang memiliki kehidupan<br/>
-                yang lebih baik, seta membantu<br/> 
+                yang lebih baik, serta membantu<br/> 
                 para siswa untuk menemukan<br/>
                 guru yang ideal.
               </p>

@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 
 	"final-project-engineering-73/backend/guru"
+	"final-project-engineering-73/backend/helper"
 
 	"github.com/gin-gonic/gin"
 )
@@ -24,12 +24,12 @@ func (h *handlerGuru) LoginGuru(c *gin.Context) {
 
 	err := c.ShouldBindJSON(&input)
 	if err != nil {
-		myErr := gin.H{
-			"error": err.Error(),
-		}
+		// ambil error binding
+		myErr := helper.ErrorBinding(err)
 
-		fmt.Errorf("Error: %v", err)
-		c.JSON(http.StatusBadRequest, myErr)
+		// respons API
+		respons := helper.ResponsAPI("Gagal binding", "Gagal", http.StatusBadRequest, myErr)
+		c.JSON(http.StatusBadRequest, respons)
 		return
 	}
 
@@ -39,11 +39,16 @@ func (h *handlerGuru) LoginGuru(c *gin.Context) {
 			"error": err.Error(),
 		}
 
-		c.JSON(http.StatusBadRequest, myErr)
+		// template respons
+		respons := helper.ResponsAPI("Login Gagal", "Gagal!", http.StatusBadRequest, myErr)
+		c.JSON(http.StatusBadRequest, respons)
 		return
 	}
 
 	data := guru.FormatGuru(newGuru)
 
-	c.JSON(http.StatusOK, data)
+	// template respons
+	respons := helper.ResponsAPI("Sukses Login", "Sukses!", http.StatusOK, data)
+
+	c.JSON(http.StatusOK, respons)
 }
