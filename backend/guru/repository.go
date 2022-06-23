@@ -9,6 +9,7 @@ type Repository interface {
 	FindGuruByKelas(id_kelas int) ([]Guru, error)
 	FindGuruByIdGuru(id_guru int) (Guru, error)
 	FindGuruForSiswa(id_guru int) (Guru, error)
+	FindTransaksiSiswa(id_guru int) ([]TransaksiSiswa, error)
 }
 
 type repository struct {
@@ -310,4 +311,52 @@ func (r *repository) FindGuruForSiswa(id_guru int) (Guru, error) {
 	}
 
 	return guru, nil
+}
+
+// func mengambil semua data siswa yang melakukan transaksi ke guru
+func (r *repository) FindTransaksiSiswa(id_guru int) ([]TransaksiSiswa, error) {
+	// inisiasi mode
+	transaksi := []TransaksiSiswa{}
+
+	// query
+	sql := `
+		SELECT 
+			transaksi.*,
+			guru.nama_lengkap,
+			siswa.nama_lengkap
+		FROM
+			transaksi
+		JOIN
+			guru ON guru.id_guru = transaksi.id_guru
+		JOIN
+			siswa ON siswa.id_siswa = transaksi.id_siswa
+		WHERE
+			transaksi.id_guru = ?
+	;`
+
+	// exec query
+	data, err := r.db.Query(sql, id_guru)
+	if err != nil {
+		return nil, err
+	}
+
+	for data.Next() {
+		var trans TransaksiSiswa
+		err := data.Scan(
+			&trans.Id_transaksi,
+			&trans.Id_guru,
+			&trans.Id_siswa,
+			&trans.Status,
+			&trans.Tgl,
+			&trans.Bukti_pembayaran,
+			&trans.Nama_guru,
+			&trans.Nama_siswa,
+		)
+		if err != nil {
+			return nil, err
+		}
+		transaksi = append(transaksi, trans)
+	}
+
+	return transaksi, nil
 }

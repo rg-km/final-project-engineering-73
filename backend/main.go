@@ -62,6 +62,8 @@ func main() {
 	{
 		// route show guru's profile
 		guru.GET("/profile/:id_guru", handlerGuru.GetProfileGuru)
+		//route menampilkan user siswa yang melakukan transaksi
+		guru.GET("/dataTransaksi/:id_guru", handlerGuru.GetAllSiswaTransaksi)
 	}
 
 	// route group siswa
