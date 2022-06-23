@@ -13,6 +13,7 @@ import Contact from './components/contact/contact';
 import CariGuru from './components/cari-guru/CariGuru'
 import Profilesiswa from './components/profile-siswa/profile-siswa';
 import Profilesiswaedit from './components/profile-siswaedit/profile-siswaedit';
+import ProfilePengajar from './components/profile-pengajar/ProfilePengajar';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/cari-guru" element={<CariGuru/>} />
         <Route path="/profile-siswa" element={<Profilesiswa/>} />
         <Route path="/profile-siswaedit" element={<Profilesiswaedit/>} />
+        <Route path="/profile-pengajar" element={<ProfilePengajar/>} />
       </Routes>
       <Footer/>
     </div>
