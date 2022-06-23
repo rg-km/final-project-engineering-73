@@ -11,6 +11,9 @@ import Home from './components/Home';
 import About from './components/about/about'
 import Contact from './components/contact/contact';
 import CariGuru from './components/cari-guru/CariGuru'
+import Profilesiswa from './components/profile-siswa/profile-siswa';
+import Profilesiswaedit from './components/profile-siswaedit/profile-siswaedit';
+
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/register-pengajar" element={<Registerpengajar/>} />
         <Route path="/cari-guru" element={<CariGuru/>} />
+        <Route path="/profile-siswa" element={<Profilesiswa/>} />
+        <Route path="/profile-siswaedit" element={<Profilesiswaedit/>} />
       </Routes>
       <Footer/>
     </div>
