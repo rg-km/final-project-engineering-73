@@ -9,6 +9,7 @@ type Service interface {
 	GetGuruByIdKelas(id_kelas int) ([]Guru, error)
 	GetProfileGuru(id_guru int) (Guru, error)
 	GetGuruForSiswa(id_guru int) (Guru, error)
+	GetAllSiswaTransaksi(id_guru int) ([]TransaksiSiswa, error)
 }
 
 type service struct {
@@ -106,4 +107,16 @@ func (s *service) GetGuruForSiswa(id_guru int) (Guru, error) {
 	}
 
 	return guru, nil
+}
+
+// func get all siswa transaksi
+func (s *service) GetAllSiswaTransaksi(id_guru int) ([]TransaksiSiswa, error) {
+	// panggil function FindTransaksiSiswa dari respository
+	transaksi, err := s.repository.FindTransaksiSiswa(id_guru)
+	if err != nil {
+		return transaksi, errors.New("transaksi tidak terdaftar")
+		// return transaksi, err
+	}
+
+	return transaksi, nil
 }
