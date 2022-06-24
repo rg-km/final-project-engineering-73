@@ -3,6 +3,7 @@ import  './register-pengajar.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComp from '../../components/navbar/NavbarComp';
+import { Link } from "react-router-dom";
 function Registerpengajar() {
   return (
     <>
@@ -36,9 +37,10 @@ function Registerpengajar() {
           />
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+          {/* <button type="submit" className="btn btn-primary">
             Submit
-          </button>
+          </button> */}
+           <Link to="/pengajuan"  className="btn btn-info btn-lg px-4 me-sm-3 text-white">Submit</Link> 
         </div>
         <p className="sudah-punya text-right">
             <a href="/login">Sudah punya akun?</a>

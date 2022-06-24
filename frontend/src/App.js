@@ -18,6 +18,7 @@ import HlmBelajarSiswa from './components/hlm-belajar-siswa/hlm-belajar-siswa';
 import ProfilePengajar from './components/profile-pengajar/ProfilePengajar';
 import Kelasku from './components/kelasku/kelasku';
 import HlmBelajarPengajar from './components/hlm-belajar-pengajar/hlm-belajar-pengajar';
+import Pengajuan from './components/pengajuan/pengajuan';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/cari-guru" element={<CariGuru/>} />
         <Route path="/profile-siswa" element={<ProfileSiswa/>} />
         <Route path="/profile-siswaedit" element={<Profilesiswaedit/>} />
+        <Route path="/pengajuan" element={<Pengajuan/>} />
         <Route path="/kelasku" element={<Kelasku/>} />
         <Route path="/hlm-belajar-pengajar" element={<HlmBelajarPengajar/>} />
         <Route path="/profile-pengajar" element={<ProfilePengajar/>} />
