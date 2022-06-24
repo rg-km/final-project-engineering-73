@@ -1,60 +1,89 @@
 import React, { Component } from 'react'
-import  './profile-siswaedit.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarSiswa from "../../components/navbar/NavbarSiswa";
-import {BrowserRouter ,Link } from "react-router-dom";
+import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
+import profilePic from "./team-male.jpeg";
 
-function Profilesiswaedit() {
+function ProfileSiswaEdit() {
     return (
         <>
-        <NavbarSiswa />
+        <NavbarSiswa/>
         
-        <form>
-            <div class="row mb-3">
-                <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
-                <div class="col-sm-10">
-                    {/* <input type="nama" class="form-control" id="inputNama"> */}
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputUsia" class="col-sm-2 col-form-label">Usia</label>
-                <div class="col-sm-10">
-                    {/* <input type="usia" class="form-control" id="inputUsia"> */}
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputSekolah" class="col-sm-2 col-form-label">Sekolah</label>
-                <div class="col-sm-10">
-                    {/* <input type="sekolah" class="form-control" id="inputSekolah"> */}
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputKelas" class="col-sm-2 col-form-label">Kelas</label>
-                <div class="col-sm-10">
-                    {/* <input type="kelas" class="form-control" id="inputKelas"> */}
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputHobby" class="col-sm-2 col-form-label">Hobby</label>
-                <div class="col-sm-10">
-                    {/* <input type="hobby" class="form-control" id="inputHobby"> */}
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
-                <div class="col-sm-10">
-                    {/* <input type="alamat" class="form-control" id="inputAlamat"> */}
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    {/* <input type="email" class="form-control" id="inputEmail"> */}
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </form>
+        <Container>
+        <Row>
+          <Col >
+            <br/>
+            <img src={profilePic} alt="profils pic" />
+
+            <Form className="mt-3">
+            <Form.Group controlId="formFile" className="mb-3">
+             <Form.Label>Profile Photo</Form.Label>
+             <Form.Control type="file" />
+            </Form.Group>
+            </Form>
+          </Col>
+
+          <Col>
+          <br/>
+            <h1>Edit User Profile</h1>
+            <Form className="mt-3 w-100">
+    
+            <Form.Group as={Row} className="mb-3" controlId="formNama">
+             <Form.Label column sm="2">Nama</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Nama" />
+             </Col>
+            </Form.Group>
+            
+            <Form.Group as={Row} className="mb-3" controlId="formUsia">
+             <Form.Label column sm="2">Usia</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Usia" />
+             </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formSekolah">
+             <Form.Label column sm="2">Sekolah</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Sekolah" />
+             </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formKelas">
+             <Form.Label column sm="2">Kelas</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Kelas" />
+             </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formHobby">
+             <Form.Label column sm="2">Hobby</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Hobby" />
+             </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formAlamat">
+             <Form.Label column sm="2">Alamat</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Alamat" />
+             </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formEmail">
+             <Form.Label column sm="2">Email</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Email" />
+             </Col>
+            </Form.Group>
+
+            <Button variant="primary">Simpan</Button>
+
+            </Form>
+          </Col>
+        </Row>
+      </Container>
         </>
-        );
+    )
 }
-export default Profilesiswaedit;
+
+export default ProfileSiswaEdit;
