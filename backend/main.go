@@ -84,6 +84,8 @@ func main() {
 		siswa.GET("/kategori/mapel", handlerKategori.GetAllKategoriMapel)
 		// route show all kategori kelas
 		siswa.GET("/kategori/kelas", handlerKategori.GetAllKategoriKelas)
+		// route menampilkan semua transaksi siswa
+		siswa.GET("/dataTransaksi/:id_siswa", handlerSiswa.GetAllSiswaTransaksi)
 	}
 
 	r.Run(":8080")
