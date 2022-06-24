@@ -1,6 +1,5 @@
 import Carousels from "./carousels/carousels";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import bg from './img/main-bg.jpg';
 import dicoding from './img/dicoding.png';
 import udemy from './img/udemy.png';
 import google from './img/google-dev.png';
@@ -11,7 +10,7 @@ import NavbarComp from './navbar/NavbarComp';
 function Home(){
   return(
     <div>
-       <NavbarComp/>
+      <NavbarComp/>
       <Carousels/>
       <div>
        <div className="px-4 pt-5 my-5 text-center border-bottom hero">
@@ -42,8 +41,8 @@ function Home(){
         </div>
       </div>
     </div>
-    </div>
-    
+  </div>
+
   )
 }
 
