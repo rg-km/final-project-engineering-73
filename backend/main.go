@@ -64,6 +64,8 @@ func main() {
 		guru.GET("/profile/:id_guru", handlerGuru.GetProfileGuru)
 		//route menampilkan user siswa yang melakukan transaksi
 		guru.GET("/dataTransaksi/:id_guru", handlerGuru.GetAllSiswaTransaksi)
+		// route menampilkan profil user siswa yang melakukan transaksi
+		guru.GET("/dataTransaksi/siswa/profile/:id_siswa", handlerGuru.GetProfileSiswa)
 	}
 
 	// route group siswa
@@ -82,6 +84,8 @@ func main() {
 		siswa.GET("/kategori/mapel", handlerKategori.GetAllKategoriMapel)
 		// route show all kategori kelas
 		siswa.GET("/kategori/kelas", handlerKategori.GetAllKategoriKelas)
+		// route menampilkan semua transaksi siswa
+		siswa.GET("/dataTransaksi/:id_siswa", handlerSiswa.GetAllSiswaTransaksi)
 	}
 
 	r.Run(":8080")

@@ -31,3 +31,16 @@ type TransaksiSiswa struct {
 	Nama_guru        string
 	Nama_siswa       string
 }
+
+type FindSiswa struct {
+	Id_siswa int
+	Username string
+	// Password     string
+	Nama_lengkap string
+	Gender       string
+	Usia         int
+	Alamat       string
+	Email        string
+	No_tlp       int
+	// Id_role      int
+}

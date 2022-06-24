@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavbarSiswa from "../../components/navbar/NavbarSiswa";
 import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
 import profilePic from "./team-male.jpeg";
+import {Link} from 'react-router-dom';
 
 function ProfileSiswa() {
 
@@ -77,7 +78,9 @@ function ProfileSiswa() {
              </Col>
             </Form.Group>
 
+            <Link to="/profile-siswaedit">
             <Button variant="primary">Edit Profile</Button>
+            </Link>
 
             </Form>
           </Col>

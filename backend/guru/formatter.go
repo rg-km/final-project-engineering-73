@@ -97,3 +97,31 @@ func FormatTransaksiSiswa(input TransaksiSiswa) TransaksiSiswaFormat {
 		Nama_siswa:       input.Nama_siswa,
 	}
 }
+
+type FindSiswaFormat struct {
+	Id_siswa int    `json:"id_siswa"`
+	Username string `json:"username"`
+	// Password     string `json:"password"`
+	Nama_lengkap string `json:"nama_lengkap"`
+	Gender       string `json:"gender"`
+	Usia         int    `json:"usia"`
+	Alamat       string `json:"alamat"`
+	Email        string `json:"email"`
+	No_tlp       int    `json:"no_tlp"`
+	// Id_role      int    `json:"id_role"`
+}
+
+func FormatFindSiswa(input FindSiswa) FindSiswaFormat {
+	return FindSiswaFormat{
+		Id_siswa: input.Id_siswa,
+		Username: input.Username,
+		// Password:     input.Password,
+		Nama_lengkap: input.Nama_lengkap,
+		Gender:       input.Gender,
+		Usia:         input.Usia,
+		Alamat:       input.Alamat,
+		Email:        input.Email,
+		No_tlp:       input.No_tlp,
+		// Id_role:      input.Id_role,
+	}
+}

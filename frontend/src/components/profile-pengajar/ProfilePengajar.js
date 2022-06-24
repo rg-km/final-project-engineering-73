@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavbarPengajar from "../../components/navbar/NavbarPengajar";
 import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
 import profilePic from "./team-male.jpeg";
+import {Link} from 'react-router-dom';
 
 function ProfilePengajar() {
 
@@ -79,7 +80,9 @@ function ProfilePengajar() {
              </Col>
             </Form.Group>
 
+            <Link to="/profile-pengajaredit">
             <Button variant="primary">Edit Profile</Button>
+            </Link>
 
             </Form>
           </Col>
