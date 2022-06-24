@@ -25,16 +25,18 @@
 - `GET`: `/api/guru/profile/<id_guru>`
 - `GET`: `/api/guru/dataTransaksi/<id_guru>`
 - `GET`: `/api/guru/dataTransaksi/siswa/profile/<id_siswa>`
+
 - `GET`: `/api/siswa/kategori/mapel`
 - `GET`: `/api/siswa/kategori/kelas`
 - `GET`: `/api/siswa/guru/mapel/<id_mapel>`
 - `GET`: `/api/siswa/guru/kelas/<id_kelas>`
 - `GET`: `/api/siswa/guru/<id_guru>`
 - `POST`: `/api/siswa/transaksi`
+- `GET` : `/api/siswa/dataTransaksi/<id_siswa>`
+
 - guru dapat melihat halaman belajar
 - siswa dapat melihat halaman belajar
 - guru dapat mengedit profil
 - siswa dapat melihat halamn profil
 - siswa dapat mengedit halaman profil
 - siswa & guru logout
-- siswa dapat melihat semua transaksi yang dilakukan
