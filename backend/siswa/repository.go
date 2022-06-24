@@ -5,6 +5,7 @@ import "database/sql"
 type Repository interface {
 	FindSiswaByUsername(username string) (Siswa, error)
 	InsertRegisterSiswa(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64) (Siswa, error)
+	FindTransaksiSiswa(id_siswa int) ([]TransaksiSiswa, error)
 }
 
 type repository struct {
@@ -64,4 +65,52 @@ func (r *repository) InsertRegisterSiswa(username string, password string, email
 	}
 
 	return siswa, nil
+}
+
+// func mengambil semua data siswa yang melakukan transaksi ke guru
+func (r *repository) FindTransaksiSiswa(id_siswa int) ([]TransaksiSiswa, error) {
+	// inisiasi mode
+	transaksi := []TransaksiSiswa{}
+
+	// query
+	sql := `
+		SELECT 
+			transaksi.*,
+			guru.nama_lengkap,
+			siswa.nama_lengkap
+		FROM
+			transaksi
+		JOIN
+			guru ON guru.id_guru = transaksi.id_guru
+		JOIN
+			siswa ON siswa.id_siswa = transaksi.id_siswa
+		WHERE
+			transaksi.id_siswa = ?
+	;`
+
+	// exec query
+	data, err := r.db.Query(sql, id_siswa)
+	if err != nil {
+		return nil, err
+	}
+
+	for data.Next() {
+		var trans TransaksiSiswa
+		err := data.Scan(
+			&trans.Id_transaksi,
+			&trans.Id_guru,
+			&trans.Id_siswa,
+			&trans.Status,
+			&trans.Tgl,
+			&trans.Bukti_pembayaran,
+			&trans.Nama_guru,
+			&trans.Nama_siswa,
+		)
+		if err != nil {
+			return nil, err
+		}
+		transaksi = append(transaksi, trans)
+	}
+
+	return transaksi, nil
 }

@@ -5,6 +5,7 @@ import "errors"
 type Service interface {
 	LoginSiswa(input InputLogin) (Siswa, error)
 	RegisterSiswa(input InputRegister) (Siswa, error)
+	GetAllSiswaTransaksi(id_siswa int) ([]TransaksiSiswa, error)
 }
 
 type service struct {
@@ -49,4 +50,16 @@ func (s *service) RegisterSiswa(input InputRegister) (Siswa, error) {
 	}
 
 	return siswa, nil
+}
+
+// func get all siswa transaksi
+func (s *service) GetAllSiswaTransaksi(id_siswa int) ([]TransaksiSiswa, error) {
+	// panggil function FindTransaksiSiswa dari respository
+	transaksi, err := s.repository.FindTransaksiSiswa(id_siswa)
+	if err != nil {
+		return transaksi, errors.New("transaksi tidak terdaftar")
+		// return transaksi, err
+	}
+
+	return transaksi, nil
 }
