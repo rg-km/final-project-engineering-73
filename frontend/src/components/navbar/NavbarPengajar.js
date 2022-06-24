@@ -12,20 +12,15 @@ export default class NavbarPengajar extends Component {
               <Navbar.Brand href="/" className='text-white'><img src={logo} alt="" width="100" height="50"/></Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-
               <Col xs={5}>
                 <Form.Control 
                 placeholder="Search here"
                 className="d-flex"
                 />
               </Col>
-
             <Button variant="outline-success">Search</Button>
-         
-         
                   <Nav className="me-auto">
                   </Nav>
-            
                 <Nav>
                  <Link to="/" className="nav-link ">Pengajuan</Link>
                  <Link to="/" className="nav-link  ">Kelasku</Link>
