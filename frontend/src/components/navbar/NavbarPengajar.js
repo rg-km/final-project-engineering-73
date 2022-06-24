@@ -22,10 +22,9 @@ export default class NavbarPengajar extends Component {
                   <Nav className="me-auto">
                   </Nav>
                 <Nav>
-                 <Link to="/" className="nav-link ">Pengajuan</Link>
-                 <Link to="/" className="nav-link  ">Kelasku</Link>
-                 <Link to="" className="nav-link  ms-5">Username</Link> 
-                
+                 <Link to="/pengajuan" className="nav-link ">Pengajuan</Link>
+                 <Link to="/kelasku" className="nav-link  ">Kelasku</Link>
+                 <Link to="/profile-pengajar" className="nav-link  ms-5">Username</Link>
                 </Nav>
               </Navbar.Collapse>
               </Container>
