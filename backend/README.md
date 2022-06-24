@@ -31,4 +31,10 @@
 - `GET`: `/api/siswa/guru/kelas/<id_kelas>`
 - `GET`: `/api/siswa/guru/<id_guru>`
 - `POST`: `/api/siswa/transaksi`
-
+- guru dapat melihat halaman belajar
+- siswa dapat melihat halaman belajar
+- guru dapat mengedit profil
+- siswa dapat melihat halamn profil
+- siswa dapat mengedit halaman profil
+- siswa & guru logout
+- siswa dapat melihat semua transaksi yang dilakukan
