@@ -190,3 +190,28 @@ func (h *handlerGuru) GetAllSiswaTransaksi(c *gin.Context) {
 
 	c.JSON(http.StatusOK, respons)
 }
+
+// func handler untuk get profile siswa for guru
+func (h *handlerGuru) GetProfileSiswa(c *gin.Context) {
+	// inisiasi id_siswa
+	id_siswa, err := strconv.Atoi(c.Param("id_siswa"))
+
+	newSiswa, err := h.service.GetProfileSiswa(id_siswa)
+	if err != nil {
+		myErr := gin.H{
+			"error": err.Error(),
+		}
+
+		// template respons
+		respons := helper.ResponsAPI("Gagal", "Gagal!", http.StatusBadRequest, myErr)
+		c.JSON(http.StatusBadRequest, respons)
+		return
+	}
+
+	data := guru.FormatFindSiswa(newSiswa)
+
+	// template respons
+	respons := helper.ResponsAPI("Sukses", "Sukses!", http.StatusOK, data)
+
+	c.JSON(http.StatusOK, respons)
+}

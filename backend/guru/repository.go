@@ -10,6 +10,7 @@ type Repository interface {
 	FindGuruByIdGuru(id_guru int) (Guru, error)
 	FindGuruForSiswa(id_guru int) (Guru, error)
 	FindTransaksiSiswa(id_guru int) ([]TransaksiSiswa, error)
+	FindProfileSiswa(id_siswa int) (FindSiswa, error)
 }
 
 type repository struct {
@@ -359,4 +360,42 @@ func (r *repository) FindTransaksiSiswa(id_guru int) ([]TransaksiSiswa, error) {
 	}
 
 	return transaksi, nil
+}
+
+// func guru melihat profil siswa yang mendaftar
+func (r *repository) FindProfileSiswa(id_siswa int) (FindSiswa, error) {
+	// inisiasi mode
+	var siswa FindSiswa
+
+	// query
+	sql := `
+		SELECT 
+			id_siswa, username, nama_lengkap, gender, usia, alamat, email, no_tlp
+		FROM
+			siswa
+		WHERE 
+			id_siswa = ?
+	;`
+
+	// exec query
+	data := r.db.QueryRow(sql, id_siswa)
+
+	// data yang akan di tampilkan
+	err := data.Scan(
+		&siswa.Id_siswa,
+		&siswa.Username,
+		// &siswa.Password,
+		&siswa.Nama_lengkap,
+		&siswa.Gender,
+		&siswa.Usia,
+		&siswa.Alamat,
+		&siswa.Email,
+		&siswa.No_tlp,
+		// &siswa.Id_role,
+	)
+	if err != nil {
+		return siswa, err
+	}
+
+	return siswa, nil
 }
