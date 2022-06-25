@@ -63,10 +63,10 @@ func main() {
 	// route group guru
 	guru := r.Group("/api/guru")
 	{
-		// route show guru's profile
+		// route dashboard guru, menampilkan semua transaksi dari siswa
+		guru.GET("dashboard/:id_guru", handlerGuru.GetAllSiswaTransaksi)
+		// route menampilkan profil guru
 		guru.GET("/profile/:id_guru", handlerGuru.GetProfileGuru)
-		//route menampilkan user siswa yang melakukan transaksi
-		guru.GET("/dataTransaksi/:id_guru", handlerGuru.GetAllSiswaTransaksi)
 		// route menampilkan profil user siswa yang melakukan transaksi
 		guru.GET("/dataTransaksi/siswa/profile/:id_siswa", handlerGuru.GetProfileSiswa)
 	}
@@ -74,21 +74,20 @@ func main() {
 	// route group siswa
 	siswa := r.Group("/api/siswa")
 	{
-		// route get guru by id mapel & id kelas
+		// route dashboard siswa, menampilkan semua transaksi
+		siswa.GET("/dashboard/:id_siswa", handlerSiswa.GetAllSiswaTransaksi)
+		// route siswa melakukan transaksi
+		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
+		// route menampikan guru sesuai id mapel & id kelas
 		siswa.GET("/guru/mapel/:id_mapel", handlerGuru.GetGuruByIdMapel)
 		siswa.GET("/guru/kelas/:id_kelas", handlerGuru.GetGuruByIdKelas)
-		// route show guru's profile for siswa
+		// route menampilkan profil guru untuk siswa
 		siswa.GET("/guru/:id_guru", handlerGuru.GetGuruForSiswa)
-
-		// route siswa transaction
-		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
-
-		// route show all kategori mapel
+		// route  menampilkan semua kategori mapel
 		siswa.GET("/kategori/mapel", handlerKategori.GetAllKategoriMapel)
-		// route show all kategori kelas
+		// route menampilkan semua kategori kelas
 		siswa.GET("/kategori/kelas", handlerKategori.GetAllKategoriKelas)
-		// route menampilkan semua transaksi siswa
-		siswa.GET("/dataTransaksi/:id_siswa", handlerSiswa.GetAllSiswaTransaksi)
+
 	}
 
 	r.Run(":8080")
