@@ -1,15 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import NavbarPengajar from "../../components/navbar/NavbarPengajar";
 import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
 import profilePic from "./team-male.jpeg";
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
-function ProfilePengajar() {
+export default class ProfilePengajar extends Component {
+  
+  // GET API  
+  state = {
+    persons: []
+  }
 
-  return (
-    <>
+  componentDidMount() {
+    axios.get(`/api/guru`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+  }
+
+  render() {
+    return (
+      <>
       <NavbarPengajar />
-
       <Container>
         <Row>
           <Col >
@@ -88,9 +102,7 @@ function ProfilePengajar() {
           </Col>
         </Row>
       </Container>
-    </>
-  )
-    
+      </>
+    )
+  }
 }
-
-export default ProfilePengajar;
