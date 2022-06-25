@@ -3,10 +3,15 @@ import NavbarPengajar from "../../components/navbar/NavbarPengajar";
 import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
 import profilePic from "./team-male.jpeg";
 
-function ProfilePengajarEdit() {
+
+export default class ProfilePengajarEdit extends Component {
+
+  // GET API
+
+  render() {
     return (
-        <>
-        <NavbarPengajar/>
+      <>
+      <NavbarPengajar/>
         
         <Container>
         <Row>
@@ -151,8 +156,7 @@ function ProfilePengajarEdit() {
           </Col>
         </Row>
       </Container>
-        </>
+      </>
     )
+  }
 }
-
-export default ProfilePengajarEdit;

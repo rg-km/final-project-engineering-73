@@ -22,9 +22,9 @@ export default class NavbarSiswa extends Component {
                   <Nav className="me-auto">
                   </Nav>
                 <Nav>
-                 <Link to="/" className="nav-link ">Kegiatanku</Link>
-                 <Link to="/" className="nav-link  ">Cari Guru</Link>
-                 <Link to="" className="nav-link  ms-5">Username</Link> 
+                 <Link to="/kegiatanku" className="nav-link ">Kegiatanku</Link>
+                 <Link to="/cari-guru" className="nav-link  ">Cari Guru</Link>
+                 <Link to="/profile-siswa" className="nav-link  ms-5">Username</Link> 
                 </Nav>
               </Navbar.Collapse>
               </Container>
