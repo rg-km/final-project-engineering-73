@@ -51,11 +51,14 @@ func main() {
 	// deklarasi http server
 	r := gin.Default()
 
+	// CORS
+	r.Use(CorsMiddleware())
+
 	// route login
 	r.POST("/api/login/siswa", handlerSiswa.LoginSiswa)
 	r.POST("/api/login/guru", handlerGuru.LoginGuru)
 	// route register
-	r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
+	// r.POST("/api/register/siswa", handlerSiswa.RegisterSiswa)
 
 	// route group guru
 	guru := r.Group("/api/guru")
@@ -89,4 +92,21 @@ func main() {
 	}
 
 	r.Run(":8080")
+}
+
+// CORS
+func CorsMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Method", "*")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(200)
+			return
+		}
+
+		c.Next()
+	}
 }
