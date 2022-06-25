@@ -4,7 +4,7 @@ import "database/sql"
 
 type Repository interface {
 	FindGuruByUsername(username string) (Guru, error)
-	InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error)
+	// InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error)
 	FindGuruByMapel(id_mapel int) ([]Guru, error)
 	FindGuruByKelas(id_kelas int) ([]Guru, error)
 	FindGuruByIdGuru(id_guru int) (Guru, error)
@@ -76,15 +76,15 @@ func (r *repository) FindGuruByUsername(username string) (Guru, error) {
 }
 
 // func insert siswa - register siswa
-func (r *repository) InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error) {
-	var guru Guru
-	// query insert user
-	sql := `
-	INSERT INTO guru (username, password, email, nama_lengkap, gender, usia, alamat, no_tlp, tarif, no_rek, id_mapel, id_kelas, id_role)
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
-	;`
+// func (r *repository) InsertRegisterGuru(username string, password string, email string, namaLengkap string, gender string, usia int64, alamat string, noTelp int64, tarif int64, noRek string, idMapel int64, idKelas int64) (Guru, error) {
+// 	var guru Guru
+// 	// query insert user
+// 	sql := `
+// 	INSERT INTO guru (username, password, email, nama_lengkap, gender, usia, alamat, no_tlp, tarif, no_rek, id_mapel, id_kelas, id_role)
+// 	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+// 	;`
 
-}
+// }
 
 // func find guru by mapel - guru mapel
 func (r *repository) FindGuruByMapel(id_mapel int) ([]Guru, error) {
