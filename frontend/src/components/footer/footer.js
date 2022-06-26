@@ -18,7 +18,7 @@ const Footer =() =>{
             <NavDropdown.Divider />
             {/* Copyright */}
             <Card.Text className='text-center'>
-            Copyright &copy; Guruku - Ruanguru
+            Copyright &copy; Guruku - Ruangguru
             <div className='d-flex justify-content-center'>
                 <tr >
                     <th className='p-2'><BsTwitter/></th>
