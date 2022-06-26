@@ -1,10 +1,35 @@
-import React, { Component } from 'react'
+import React, { Component ,useState} from 'react'
 import  './register.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComp from '../../components/navbar/NavbarComp';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function Register() {
+  const [username,setUsername] = useState("");
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  let navigate = useNavigate();
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    let result = await fetch('http://127.0.0.1:8080/api/register/siswa',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username:username,
+        email:email,
+        password:password
+      })
+    });
+    result = await result.json();
+    console.warn(result);
+    navigate("/profile-siswa");
+    }
+
   return (
     <>
      <NavbarComp/>
@@ -20,6 +45,7 @@ function Register() {
             type="username"
             className="form-control"
             placeholder="Enter username"
+            onChange={(e)=>setUsername(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -27,6 +53,7 @@ function Register() {
             type="email"
             className="form-control"
             placeholder="Enter email"
+            onChange={(e)=>setEmail(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -34,13 +61,14 @@ function Register() {
             type="password"
             className="form-control"
             placeholder="Enter password"
+            onChange={(e)=>setPassword(e.target.value)}
           />
         </div>
         <div className="d-grid">
           {/* <button type="submit" className="btn btn-primary">
             Submit
           </button> */}
-           <Link to="/kegiatanku"  className="btn btn-info btn-lg px-4 me-sm-3 text-white">Submit</Link> 
+           <Link to="/kegiatanku"  className="btn btn-info btn-lg px-4 me-sm-3 text-white" onClick={handleSubmit}>Submit</Link> 
         </div>
         <p className="sudah-punya text-right">
             <a href="/login">Sudah punya akun?</a>
