@@ -41,7 +41,7 @@ function Login() {
     </div>
     <div className="col-sm-4">
     <form>
-        <h3 className='mb-4'>Sign In GURUKU</h3>
+        <h3 className='mb-4'>Login</h3>
         <div className="mb-3">
           <input
             type="text"
