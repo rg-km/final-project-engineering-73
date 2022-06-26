@@ -39,7 +39,7 @@ function Register() {
     </div>
     <div className="col-sm-4">
     <form>
-        <h3 className='mb-4'>Register Siswa GURUKU</h3>
+        <h3 className='mb-4'>Register Siswa</h3>
         <div className="mb-3">
           <input
             type="username"
