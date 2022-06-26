@@ -15,7 +15,7 @@ function Kelasku(){
                 <tr>
                     <th>Siswa</th>
                     <th>Satus</th>
-                    <th>Kelas</th>
+                    <th>tanggal Daftar</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -23,13 +23,13 @@ function Kelasku(){
                 <tr>
                     <td>Nama</td>
                     <td>Status</td>
-                    <td>Kelas</td>
+                    <td>tanggal Daftar</td>
                     <td><Link to="/hlm-belajar-pengajar"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
                 </tr>
                 <tr>
                     <td>Nama</td>
                     <td>Status</td>
-                    <td>Kelas</td>
+                    <td>tanggal Daftar</td>
                     <td><Link to="/hlm-belajar-pengajar"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
                 </tr>
                 </tbody>

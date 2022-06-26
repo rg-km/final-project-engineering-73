@@ -1,0 +1,13 @@
+{
+    "transaksi": [
+      {
+        "id": 1,
+        "status": "Selesai",
+        "username": "Lisa",
+        "nama_lengkap": "Lisa Widyawati",
+        "mapel": "Matematika",
+        "jadwal": "Minggu",
+        "tgl": "22-06-2022"
+      }
+    ]
+  }

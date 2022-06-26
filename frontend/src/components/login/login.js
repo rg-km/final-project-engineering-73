@@ -25,6 +25,7 @@ function Login() {
     });
     result = await result.json();
     console.warn(result);
+    console.log(username)
     navigate("/profile-pengajar");
     
     // if(result.status === 200){
