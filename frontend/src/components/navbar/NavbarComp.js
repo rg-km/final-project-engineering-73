@@ -17,8 +17,12 @@ export default class NavbarComp extends Component {
                 <Nav>
                  <Link to="/" className="nav-link ">Home</Link>
                  <Link to="/about" className="nav-link  ">About</Link>
-                 <Link to="/contact" className="nav-link ">Contact</Link>
-                 <Link to="/login" className="nav-link  ms-5">Login</Link> 
+                 <Link to="/contact" className="nav-link">Contact</Link>
+               
+                 <NavDropdown title="Login" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/login-siswa">Login Siswa</NavDropdown.Item>
+                  <NavDropdown.Item href="/login-pengajar">Login Pengajar</NavDropdown.Item>
+                 </NavDropdown> 
                  <Link to="" className="nav-link ">|</Link>
                 
                  <NavDropdown title="Register" id="basic-nav-dropdown">
