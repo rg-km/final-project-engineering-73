@@ -1,11 +1,37 @@
-import React, { Component } from 'react'
+import React, { Component ,useState} from 'react'
 import  './login.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComp from '../../components/navbar/NavbarComp';
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
-  
+  const [username,setUsername] = useState("");
+  const [password,setPassword] = useState("");
+  let navigate = useNavigate();
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    let result = await fetch('http://127.0.0.1:8080/api/login/guru',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username:username,
+        password:password
+      })
+    });
+    result = await result.json();
+    console.warn(result);
+    navigate("/profile-pengajar");
+    
+    // if(result.status === 200){
+    //   localStorage.setItem('user-info',JSON.stringify(result));
+    //   navigate("/profile-pengajar");
+    }
+
   return (
     <>
     <NavbarComp/>
@@ -18,9 +44,10 @@ function Login() {
         <h3 className='mb-4'>Sign In GURUKU</h3>
         <div className="mb-3">
           <input
-            type="email"
+            type="text"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Enter username"
+            onChange={(e)=>setUsername(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -28,28 +55,12 @@ function Login() {
             type="password"
             className="form-control"
             placeholder="Enter password"
+            onChange={(e)=>setPassword(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-        <select className="form-select" aria-label="Default select example" name="status">
-          <option value="siswa">Siswa</option>
-          <option value="pengajar">Pengajar</option>
-        </select>
-        </div>
-        <div className="mb-3">
-          <div className="custom-control custom-checkbox ">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label " htmlFor="customCheck1">
-              Remember me
-            </label>
-          </div>
-        </div>
+        
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+          <button  className="btn btn-primary" onClick={handleSubmit}>
             Submit
           </button>
         </div>
