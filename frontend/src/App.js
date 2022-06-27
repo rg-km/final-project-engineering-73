@@ -6,7 +6,7 @@ import LoginGuru from './components/login/login-guru';
 import LoginSiswa from './components/login/login-siswa';
 import Register from './components/register/register';
 import Registerpengajar from './components/register-pengajar/register-pengajar';
-import { BrowserRouter, Link, Route,Routes, Switch } from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Home from './components/Home';
 import About from './components/about/about'
 import Contact from './components/contact/contact';

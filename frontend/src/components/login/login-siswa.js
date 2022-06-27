@@ -25,7 +25,7 @@ function Login() {
     });
     result = await result.json();
     console.warn(result);
-    navigate("/profile-siswa");
+    navigate("/kegiatanku");
     
     // if(result.status === 200){
     //   localStorage.setItem('user-info',JSON.stringify(result));

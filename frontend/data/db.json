@@ -21,8 +21,8 @@
     "transaksi.siswaGuru": [ 
       {
         "nama_lengkap": "Guru",
-        "mapel": "Matematika",
-        "jadwal": "Minggu",
+        "mapel": "Bahasa Inggris",
+        "jadwal": "Sabtu",
         "link": "https://meet.google.com/cvp-htsq-dcf"
       }
     ],
@@ -30,7 +30,7 @@
       {
         "nama_lengkap": "lisa widyawati",
         "mapel": "Matematika",
-        "jadwal": "Minggu",
+        "jadwal": "Selasa",
         "link": "https://meet.google.com/cvp-htsq-dcf"
       }
     ],
@@ -56,16 +56,16 @@
     "transaksi.siswaSiswa": [ 
       {
         "nama_lengkap": "Guru",
-        "mapel": "Matematika",
-        "jadwal": "Minggu",
+        "mapel": "Geografi",
+        "jadwal": "kamis",
         "link": "https://meet.google.com/cvp-htsq-dcf"
       }
     ],
     "transaksi.siswaJohn": [ 
       {
         "nama_lengkap": "john dev",
-        "mapel": "Matematika",
-        "jadwal": "Minggu",
+        "mapel": "Fisika",
+        "jadwal": "Sabtu",
         "link": "https://meet.google.com/cvp-htsq-dcf"
       }
     ]

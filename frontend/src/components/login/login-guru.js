@@ -26,7 +26,7 @@ function Login() {
     result = await result.json();
     console.warn(result);
     console.log(username)
-    navigate("/profile-pengajar");
+    navigate("/kelasku");
     
     // if(result.status === 200){
     //   localStorage.setItem('user-info',JSON.stringify(result));
