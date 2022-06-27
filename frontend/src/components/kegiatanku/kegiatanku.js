@@ -1,13 +1,35 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
-import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './kegitanku.css';
 import NavbarSiswa from '../navbar/NavbarSiswa';
-import axios from 'axios';
+import Transaksi from './Transaksi';
 
+const apiDummy = "http://localhost:8000/transaksi.siswa/" //Dummy API
+//npx json-server --watch data/db.json --port 8000 (untuk menjalankan)
 export default class Kegiatanku extends React.Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataUser: [],       // Untuk tampung Get all data     
+        }
+    }
+    componentDidMount() {
+        this.GetdataUsers()
+    }
+    GetdataUsers() {
+        fetch(apiDummy).then(res => {
+            if (res.status === 200)
+                return res.json()
+            else
+                return <p>No data Found</p>
+        }).then(resdata => {
+            console.log(resdata)
+            this.setState({
+                dataUser: resdata
+            })
+        })
+    }
     render(){
         return(
             <>
@@ -24,12 +46,12 @@ export default class Kegiatanku extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr >
-                        <td>Nama</td>
-                        <td>Status</td>
-                        <td>tanggal Daftar</td>
-                        <td><Link to="/hlm-belajar-siswa"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
-                    </tr>
+                    {
+                        this.state.dataUser.map(dataUser => {
+                            return <Transaksi key={dataUser.id_siswa}
+                                data={dataUser} />
+                        })
+                    }
                     </tbody>
                 </Table>
                 </div>
