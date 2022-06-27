@@ -69,6 +69,8 @@ func main() {
 		guru.GET("/profile/:id_guru", handlerGuru.GetProfileGuru)
 		// route menampilkan profil user siswa yang melakukan transaksi
 		guru.GET("/dataTransaksi/siswa/profile/:id_siswa", handlerGuru.GetProfileSiswa)
+		// route edit profil guru
+		guru.PUT("/profile/:id_guru", handlerGuru.UpdateGuruProfile)
 	}
 
 	// route group siswa

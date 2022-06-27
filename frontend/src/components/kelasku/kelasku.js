@@ -39,7 +39,7 @@ export default class Kelasku extends React.Component {
                 <Table responsive="sm">
                     <thead>
                     <tr>
-                        <th>Pengajar</th>
+                        <th>Siswa</th>
                         <th>Satus</th>
                         <th>tanggal Daftar</th>
                         <th></th>

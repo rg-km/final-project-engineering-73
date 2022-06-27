@@ -11,6 +11,7 @@ type Repository interface {
 	FindGuruForSiswa(id_guru int) (Guru, error)
 	FindTransaksiSiswa(id_guru int) ([]TransaksiSiswa, error)
 	FindProfileSiswa(id_siswa int) (FindSiswa, error)
+	UpdateProfileGuru(id_guru int, update UpdateGuru) (Guru, error)
 }
 
 type repository struct {
@@ -398,4 +399,24 @@ func (r *repository) FindProfileSiswa(id_siswa int) (FindSiswa, error) {
 	}
 
 	return siswa, nil
+}
+
+// update profile guru
+func (r *repository) UpdateProfileGuru(id_guru int, update UpdateGuru) (Guru, error) {
+	var guru Guru
+	_, err := r.db.Exec(`
+		UPDATE 
+			guru
+		SET 
+			username=?, password=?, nama_lengkap=?, gender=?, usia=?, alamat=?, email=?, no_tlp=?, tarif=?, no_rek=?
+		WHERE 
+			id_guru = ?
+		`, guru.Username, guru.Password, guru.Nama_lengkap, guru.Gender, guru.Usia, guru.Alamat, guru.Email, guru.No_tlp, guru.Tarif, guru.No_rek,
+	)
+
+	if err != nil {
+		return guru, err
+	}
+
+	return guru, nil
 }

@@ -11,6 +11,7 @@ type Service interface {
 	GetGuruForSiswa(id_guru int) (Guru, error)
 	GetAllSiswaTransaksi(id_guru int) ([]TransaksiSiswa, error)
 	GetProfileSiswa(id_siswa int) (FindSiswa, error)
+	UpdateGuruProfile(id_guru int, update UpdateGuru) (Guru, error)
 }
 
 type service struct {
@@ -132,4 +133,25 @@ func (s *service) GetProfileSiswa(id_siswa int) (FindSiswa, error) {
 	}
 
 	return siswa, nil
+}
+
+// func update profile guru
+func (s *service) UpdateGuruProfile(id_guru int, update UpdateGuru) (Guru, error) {
+	guru, err := s.repository.FindGuruByIdGuru(id_guru)
+
+	guru.Username = update.Username
+	guru.Password = update.Password
+	guru.Nama_lengkap = update.Nama_lengkap
+	guru.Gender = update.Gender
+	guru.Alamat = update.Alamat
+	guru.Email = update.Email
+	guru.No_tlp = int(update.No_tlp)
+
+	updateGuru, err := s.repository.UpdateProfileGuru(id_guru, update)
+
+	if err != nil {
+		return guru, err
+	}
+
+	return updateGuru, nil
 }

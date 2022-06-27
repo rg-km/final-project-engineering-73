@@ -3,10 +3,14 @@ import NavbarSiswa from "../../components/navbar/NavbarSiswa";
 import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
 import profilePic from "./team-male.jpeg";
 
-function ProfileSiswaEdit() {
+export default class ProfileSiswaedit extends Component {
+
+  // GET API
+
+  render() {
     return (
-        <>
-        <NavbarSiswa/>
+      <>
+      <NavbarSiswa/>
         
         <Container>
         <Row>
@@ -33,6 +37,20 @@ function ProfileSiswaEdit() {
              <Form.Control type="textarea" placeholder="Nama" />
              </Col>
             </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formUsername">
+             <Form.Label column sm="2">Username</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Username" />
+             </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} className="mb-3" controlId="formPassword">
+             <Form.Label column sm="2">Password</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Password" />
+             </Col>
+            </Form.Group>
             
             <Form.Group as={Row} className="mb-3" controlId="formUsia">
              <Form.Label column sm="2">Usia</Form.Label>
@@ -41,24 +59,10 @@ function ProfileSiswaEdit() {
              </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3" controlId="formSekolah">
-             <Form.Label column sm="2">Sekolah</Form.Label>
+            <Form.Group as={Row} className="mb-3" controlId="formGender">
+             <Form.Label column sm="2">Gender</Form.Label>
              <Col sm="10">
-             <Form.Control type="textarea" placeholder="Sekolah" />
-             </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} className="mb-3" controlId="formKelas">
-             <Form.Label column sm="2">Kelas</Form.Label>
-             <Col sm="10">
-             <Form.Control type="textarea" placeholder="Kelas" />
-             </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} className="mb-3" controlId="formHobby">
-             <Form.Label column sm="2">Hobby</Form.Label>
-             <Col sm="10">
-             <Form.Control type="textarea" placeholder="Hobby" />
+             <Form.Control type="textarea" placeholder="Gender" />
              </Col>
             </Form.Group>
 
@@ -76,6 +80,13 @@ function ProfileSiswaEdit() {
              </Col>
             </Form.Group>
 
+            <Form.Group as={Row} className="mb-3" controlId="formTelepon">
+             <Form.Label column sm="2">Telepon</Form.Label>
+             <Col sm="10">
+             <Form.Control type="textarea" placeholder="Telepon" />
+             </Col>
+            </Form.Group>
+
             <Button variant="primary">Simpan</Button>
 
             </Form>
@@ -84,6 +95,5 @@ function ProfileSiswaEdit() {
       </Container>
         </>
     )
+  }
 }
-
-export default ProfileSiswaEdit;
