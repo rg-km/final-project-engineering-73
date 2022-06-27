@@ -25,7 +25,8 @@ function Login() {
     });
     result = await result.json();
     console.warn(result);
-    navigate("/profile-pengajar");
+    console.log(username)
+    navigate("/kelasku");
     
     // if(result.status === 200){
     //   localStorage.setItem('user-info',JSON.stringify(result));

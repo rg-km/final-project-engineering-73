@@ -6,7 +6,7 @@ import LoginGuru from './components/login/login-guru';
 import LoginSiswa from './components/login/login-siswa';
 import Register from './components/register/register';
 import Registerpengajar from './components/register-pengajar/register-pengajar';
-import { BrowserRouter, Link, Route,Routes, Switch } from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Home from './components/Home';
 import About from './components/about/about'
 import Contact from './components/contact/contact';
@@ -33,13 +33,13 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/register-pengajar" element={<Registerpengajar/>} />
         <Route path="/kegiatanku" element={<Kegiatanku/>} />
-        <Route path="/hlm-belajar-siswa" element={<HlmBelajarSiswa/>}/>
+        <Route path="/hlm-belajar-siswa/:username" element={<HlmBelajarSiswa/>}/>
         <Route path="/cari-guru" element={<CariGuru/>} />
         <Route path="/profile-siswa" element={<ProfileSiswa/>} />
         <Route path="/pengajuan" element={<Pengajuan/>} />
         <Route path="/profile-siswaedit" element={<ProfileSiswaedit/>} />
         <Route path="/kelasku" element={<Kelasku/>} />
-        <Route path="/hlm-belajar-pengajar" element={<HlmBelajarPengajar/>} />
+        <Route path="/hlm-belajar-pengajar/:username" element={<HlmBelajarPengajar/>} />
         <Route path="/profile-pengajar" element={<ProfilePengajar/>} />
         <Route path="/profile-pengajaredit" element={<ProfilePengajarEdit/>} />
       </Routes>

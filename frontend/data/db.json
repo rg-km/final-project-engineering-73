@@ -1,0 +1,74 @@
+{
+    "transaksi.siswa": [
+      {
+        "id_siswa": 1,
+        "id_guru":1,
+        "status": "Mendaftar",
+        "username": "Guru",
+        "tgl": "19-06-2022"
+        
+       
+      },
+      {
+        "id_siswa": 1,
+        "id_guru": 2,
+        "status": "Selesai",
+        "username": "Lisa",
+        "tgl": "22-06-2022"
+      }
+    ],
+
+    "transaksi.siswaGuru": [ 
+      {
+        "nama_lengkap": "Guru",
+        "mapel": "Bahasa Inggris",
+        "jadwal": "Sabtu",
+        "link": "https://meet.google.com/cvp-htsq-dcf"
+      }
+    ],
+    "transaksi.siswaLisa": [ 
+      {
+        "nama_lengkap": "lisa widyawati",
+        "mapel": "Matematika",
+        "jadwal": "Selasa",
+        "link": "https://meet.google.com/cvp-htsq-dcf"
+      }
+    ],
+    "transaksi.guru": [
+      {
+        
+        "id_guru":1,
+        "id_siswa": 1,
+        "status": "Mendaftar",
+        "username": "Siswa",
+        "tgl": "19-06-2022"
+        
+       
+      },
+      {
+        "id_guru": 1,
+        "id_siswa": 2,
+        "status": "Selesai",
+        "username": "John",
+        "tgl": "22-06-2022"
+      }
+    ],
+    "transaksi.siswaSiswa": [ 
+      {
+        "nama_lengkap": "Guru",
+        "mapel": "Geografi",
+        "jadwal": "kamis",
+        "link": "https://meet.google.com/cvp-htsq-dcf"
+      }
+    ],
+    "transaksi.siswaJohn": [ 
+      {
+        "nama_lengkap": "john dev",
+        "mapel": "Fisika",
+        "jadwal": "Sabtu",
+        "link": "https://meet.google.com/cvp-htsq-dcf"
+      }
+    ]
+  }
+  
+ 

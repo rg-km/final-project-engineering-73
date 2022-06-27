@@ -1,24 +1,35 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
-import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './kegitanku.css';
 import NavbarSiswa from '../navbar/NavbarSiswa';
-import axios from 'axios';
+import Transaksi from './Transaksi';
 
+const apiDummy = "http://localhost:8000/transaksi.siswa/" //Dummy API
+//npx json-server --watch data/db.json --port 8000 (untuk menjalankan)
 export default class Kegiatanku extends React.Component {
-    state = {
-        persons: []
-      }
-    
-      componentDidMount() {
-        axios.get(`/api/guru`)
-          .then(res => {
-            const persons = res.data;
-            this.setState({ persons });
-          })
-      }
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataUser: [],       // Untuk tampung Get all data     
+        }
+    }
+    componentDidMount() {
+        this.GetdataUsers()
+    }
+    GetdataUsers() {
+        fetch(apiDummy).then(res => {
+            if (res.status === 200)
+                return res.json()
+            else
+                return <p>No data Found</p>
+        }).then(resdata => {
+            console.log(resdata)
+            this.setState({
+                dataUser: resdata
+            })
+        })
+    }
     render(){
         return(
             <>
@@ -30,29 +41,17 @@ export default class Kegiatanku extends React.Component {
                     <tr>
                         <th>Pengajar</th>
                         <th>Satus</th>
-                        <th>Kelas</th>
+                        <th>tanggal Daftar</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
                     {
-                    this.state.persons
-                        .map(person =>
-                        <td key={person.id}>{person.id}</td>
-                        )
+                        this.state.dataUser.map(dataUser => {
+                            return <Transaksi key={dataUser.id_siswa}
+                                data={dataUser} />
+                        })
                     }
-                        <td>Nama</td>
-                        <td>Status</td>
-                        <td>Kelas</td>
-                        <td><Link to="/hlm-belajar-siswa"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
-                    </tr>
-                    <tr>
-                        <td>Nama</td>
-                        <td>Status</td>
-                        <td>Kelas</td>
-                        <td><Link to="/hlm-belajar-siswa"  className="btn btn-info btn-sm px-2 me-sm-3 text-white">detail</Link> </td> {/* mengarah ke hlm-belajar-siswa */}
-                    </tr>
                     </tbody>
                 </Table>
                 </div>

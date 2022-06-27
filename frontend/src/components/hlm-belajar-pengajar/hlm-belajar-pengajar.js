@@ -1,10 +1,30 @@
-import React from 'react';
-import {Table, Form, Row, Col} from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import {Form, Row, Col} from 'react-bootstrap';
+import { Link, useParams } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './hlm-belajar.css';
 import NavbarPengajar from '../navbar/NavbarPengajar';
 function HlmBelajarPengajar(){
+    const param = useParams();
+    const [nama_lengkap, setnama_lengkap] = useState([])
+    const [mapel, setmapel] = useState([])
+    const [jadwal, setjadwal] = useState([])
+    const [link, setlink] = useState([])
+    const fetchData = () => {
+        fetch(`http://localhost:8000/transaksi.siswa`+ param.username)
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            setnama_lengkap(data[0].nama_lengkap)
+            setmapel(data[0].mapel)
+            setjadwal(data[0].jadwal)
+            setlink(data[0].link)
+          })
+      }
+      useEffect(() => {
+        fetchData()
+      }, [])
     return(
         <>
         <NavbarPengajar/>
@@ -18,7 +38,7 @@ function HlmBelajarPengajar(){
                 <Col sm="10">
                 <Form.Control
                     type="text"
-                    placeholder="Disabled input"
+                    placeholder={nama_lengkap}
                     aria-label="Disabled input example"
                     disabled
                     readOnly
@@ -32,7 +52,7 @@ function HlmBelajarPengajar(){
                 <Col sm="10">
                 <Form.Control
                     type="text"
-                    placeholder="Disabled input"
+                    placeholder={mapel}
                     aria-label="Disabled input example"
                     disabled
                     readOnly
@@ -45,7 +65,7 @@ function HlmBelajarPengajar(){
                 </Form.Label>
                 <Col sm="10">
                     <Form.Select aria-label="Default select example">
-                        <option>Pilih Hari</option>
+                        <option>{jadwal}</option>
                         <option value="1">Senin</option>
                         <option value="2">Selasa</option>
                         <option value="3">Rabu</option>
@@ -62,6 +82,7 @@ function HlmBelajarPengajar(){
                 <Form.Control
                     type="text"
                     id="linkkelas"
+                    placeholder={link}
                     aria-describedby="passwordHelpBlock"
                 />
                 </Col>
