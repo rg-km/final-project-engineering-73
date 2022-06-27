@@ -17,7 +17,14 @@
         "tgl": "22-06-2022"
       }
     ],
-
+    "transaksi.siswa.1":[
+      {
+        "nama_lengkap":"John dev",
+        "alamat": "Bandung",
+        "email": "john@gmail.com",
+        "no_tlp": "08123454422"
+      }
+    ],
     "transaksi.siswaGuru": [ 
       {
         "nama_lengkap": "Guru",
@@ -39,7 +46,7 @@
         
         "id_guru":1,
         "id_siswa": 1,
-        "status": "Mendaftar",
+        "status": "Selesai",
         "username": "Siswa",
         "tgl": "19-06-2022"
         
