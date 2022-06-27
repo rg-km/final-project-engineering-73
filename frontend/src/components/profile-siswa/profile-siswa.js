@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import NavbarSiswa from "../../components/navbar/NavbarSiswa";
 import { Container,Row,Col,Form ,Button} from 'react-bootstrap';
 import DefaultUserPic from "./team-male.jpeg";
