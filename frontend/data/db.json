@@ -75,7 +75,18 @@
         "jadwal": "Sabtu",
         "link": "https://meet.google.com/cvp-htsq-dcf"
       }
-    ]
+    ],
+
+    "data.guru.1": [{
+      "nama_lengkap": "saiful",
+      "usia":"25",
+      "lulusan":"Universitas Indonesia",
+      "pengajar":"fisika",
+      "kelas":"SMA",
+      "telepon":"08123456789",
+      "tarif":"Rp 50.000 / jam",
+      "no_rekening":"1234-5678-91011"
+    }]
   }
   
  
