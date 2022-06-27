@@ -3,7 +3,7 @@
 ## Requirements
 
 - Ada 2 user, guru dan siswa
-- Sebagai user(Guru) saya bisa login, register dan logout
+- Sebagai user(Guru) saya bisa login, register
 - Sebagai user(Guru) saya bisa melihat dan mengedit profil saya
 - Sebagai user(Guru) saya bisa melihat semua siswa yang melakukan transaksi kepada saya
 - Sebagai user(Guru) saya bisa melihat profil siswa yang mendaftar ke saya
@@ -22,21 +22,15 @@
 - `POST`: `/api/login/guru`
 - `POST`: `/api/register/siswa`
 - `POST`: `/api/register/guru`
+- `GET`: `/api/guru/dashboard/<id_guru>`
 - `GET`: `/api/guru/profile/<id_guru>`
-- `GET`: `/api/guru/dataTransaksi/<id_guru>`
+- `PUT`: `/api/guru/profileUpdate/<id_guru>`
 - `GET`: `/api/guru/dataTransaksi/siswa/profile/<id_siswa>`
 
+- `GET` : `/api/siswa/dashboard/<id_siswa>`
 - `GET`: `/api/siswa/kategori/mapel`
 - `GET`: `/api/siswa/kategori/kelas`
 - `GET`: `/api/siswa/guru/mapel/<id_mapel>`
 - `GET`: `/api/siswa/guru/kelas/<id_kelas>`
 - `GET`: `/api/siswa/guru/<id_guru>`
-- `POST`: `/api/siswa/transaksi`
-- `GET` : `/api/siswa/dataTransaksi/<id_siswa>`
-
-- guru dapat melihat halaman belajar
-- siswa dapat melihat halaman belajar
-- guru dapat mengedit profil
-- siswa dapat melihat halamn profil
-- siswa dapat mengedit halaman profil
-- siswa & guru logout
+- `GET` : `/api/siswa/profile/<id_siswa>`
