@@ -34,3 +34,18 @@
 - `GET`: `/api/siswa/guru/kelas/<id_kelas>`
 - `GET`: `/api/siswa/guru/<id_guru>`
 - `GET` : `/api/siswa/profile/<id_siswa>`
+
+
+## Login Data
+ 
+ Guru :
+ {
+    "username":"guru",
+    "password":"1234"
+ }
+
+ Siswa :
+ {
+    "username":"siswa",
+    "password":"1234"
+ }
