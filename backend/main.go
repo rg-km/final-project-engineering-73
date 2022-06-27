@@ -78,6 +78,8 @@ func main() {
 	{
 		// route dashboard siswa, menampilkan semua transaksi
 		siswa.GET("/dashboard/:id_siswa", handlerSiswa.GetAllSiswaTransaksi)
+		// route menampilkan profil siswa
+		siswa.GET("/profile/:id_siswa", handlerSiswa.GetProfileSiswa)
 		// route siswa melakukan transaksi
 		siswa.POST("/transaksi", handlerTransaksi.InputTransaksi)
 		// route menampikan guru sesuai id mapel & id kelas
