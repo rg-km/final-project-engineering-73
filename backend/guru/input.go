@@ -20,3 +20,16 @@ type InputRegister struct {
 	Id_mapel    int64  `json:"id_mapel"`
 	Id_kelas    int64  `json:"id_kelas"`
 }
+
+type UpdateGuru struct {
+	Username     string `json:"username"`
+	Password     string `json:"password"`
+	Email        string `json:"email"`
+	Nama_lengkap string `json:"nama_lengkap"`
+	Gender       string `json:"gender"`
+	Usia         int    `json:"usia"`
+	Alamat       string `json:"alamat"`
+	No_tlp       int    `json:"no_tlp"`
+	Tarif        int    `json:"tarif"`
+	No_rek       string `json:"no_rek"`
+}

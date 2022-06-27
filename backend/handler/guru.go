@@ -215,3 +215,28 @@ func (h *handlerGuru) GetProfileSiswa(c *gin.Context) {
 
 	c.JSON(http.StatusOK, respons)
 }
+
+// func handler untuk update profil guru
+func (h *handlerGuru) UpdateGuruProfile(c *gin.Context) {
+	guruUpdate := guru.UpdateGuru{}
+	id_guru, err := strconv.Atoi(c.Param("id_guru"))
+
+	newGuru, err := h.service.UpdateGuruProfile(id_guru, guruUpdate)
+	if err != nil {
+		myErr := gin.H{
+			"error": err.Error(),
+		}
+
+		// template respons
+		respons := helper.ResponsAPI("Gagal", "Gagal!", http.StatusBadRequest, myErr)
+		c.JSON(http.StatusBadRequest, respons)
+		return
+	}
+
+	data := guru.FormatGuru(newGuru)
+
+	// template respons
+	respons := helper.ResponsAPI("Sukses Update Data", "Sukses!", http.StatusOK, data)
+
+	c.JSON(http.StatusOK, respons)
+}
