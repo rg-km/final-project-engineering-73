@@ -2,7 +2,7 @@ import React, { Component ,useState} from 'react'
 import  './login.css';
 import guruku from './guruku-bg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComp from '../../components/navbar/NavbarComp';
+import NavbarComp from '../navbar/NavbarComp';
 import { useNavigate } from "react-router-dom";
 
 
@@ -42,7 +42,7 @@ function Login() {
     </div>
     <div className="col-sm-4">
     <form>
-        <h3 className='mb-4'>Login</h3>
+        <h3 className='mb-4'>Login Guru</h3>
         <div className="mb-3">
           <input
             type="text"

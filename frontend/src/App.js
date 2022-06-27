@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer/footer';
-import Login from './components/login/login';
+import LoginGuru from './components/login/login-guru';
+import LoginSiswa from './components/login/login-siswa';
 import Register from './components/register/register';
 import Registerpengajar from './components/register-pengajar/register-pengajar';
 import { BrowserRouter, Link, Route,Routes, Switch } from 'react-router-dom'
@@ -27,7 +28,8 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>} />
         <Route path="/Contact" element={<Contact/>} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login-siswa" element={<LoginSiswa/>} />
+        <Route path="/login-pengajar" element={<LoginGuru/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/register-pengajar" element={<Registerpengajar/>} />
         <Route path="/kegiatanku" element={<Kegiatanku/>} />
